@@ -1,68 +1,41 @@
-# React Native Expo Boilerplate
+# ScarFit
 
-Este repositório serve como um boilerplate para iniciar projetos em React Native utilizando o Expo. Ele está configurado com três principais estratégias de navegação - Stack, Drawer e Bottom Tabs Navigation - e inclui um exemplo de passagem de dados entre telas para facilitar o desenvolvimento de aplicações mais complexas.
+ScarFit é um aplicativo inovador projetado para promover a recuperação física e emocional de seus usuários, transformando cicatrizes em símbolos de superação e fortalecimento. Através do acesso facilitado a treinamentos personalizados e suporte médico especializado, buscamos proporcionar uma experiência excepcional focada no bem-estar holístico.
 
-## Status do desenvolvimento
+## Visão
 
-- [x] Configuração do ambiente
-- [x] Estrutura de pastas
-- [x] Estrutura de navegação
-- [x] Exemplo de passagem de dados entre telas
+Nosso objetivo é ser uma fonte confiável de suporte e inspiração para aqueles que buscam uma vida saudável e significativa, mesmo diante de desafios físicos e emocionais. Através do nosso aplicativo, pretendemos oferecer:
 
-## Iniciando o projeto
+- Recuperação física e emocional: Ao fornecer treinamentos personalizados e suporte médico especializado, ajudamos nossos usuários a enfrentar seus desafios e transformar suas cicatrizes em símbolos de superação.
+- Bem-estar holístico: Reconhecemos a importância da saúde física, mental e emocional, e buscamos promover o bem-estar completo de nossos usuários, oferecendo recursos para o autocuidado.
+- Comunidade de apoio: Criamos um ambiente acolhedor e solidário onde os usuários podem compartilhar experiências, encontrar inspiração e se conectar com outros em jornadas semelhantes de recuperação e fortalecimento.
 
-Aqui estão as instruções detalhadas para configurar o ambiente de desenvolvimento e começar a trabalhar com este boilerplate em sua máquina local.
+## Valores
 
-### Pré-requisitos
+Nossos valores fundamentais são:
 
-Para utilizar este boilerplate, é essencial ter o ambiente NodeJS/React Native já configurado. Caso ainda não tenha realizado essa configuração, siga as orientações disponíveis [neste link](https://www.notion.so/Windows-f715073fc7c446dbaaee2bc313f8741c) para preparar seu ambiente.
+- Comprometimento: Estamos comprometidos com a excelência em tudo o que fazemos, buscando superar as expectativas desde o desenvolvimento do aplicativo até o suporte prestado aos nossos usuários.
+- Saúde Integral: Reconhecemos a importância da saúde física, mental e emocional e buscamos promover o bem-estar holístico de nossos usuários.
+- Comunidade de Apoio: Criamos um ambiente acolhedor e solidário onde os usuários podem compartilhar suas experiências e encontrar inspiração.
+- Transparência: Mantemos uma comunicação aberta e transparente com nossos usuários, fornecendo informações claras sobre nossos serviços, políticas e práticas.
+- Inovação: Buscamos continuamente inovar e aprimorar nossos serviços, utilizando as últimas tecnologias e abordagens para garantir uma experiência excepcional para nossos usuários.
 
-### Configuração e Instalação
+## Páginas do Aplicativo
 
-1. **Fork do Repositório:** Primeiramente, faça um fork deste repositório para sua conta no GitHub.
+- **Página de Login**: A primeira página visualizada pelos usuários, onde podem acessar suas contas fornecendo e-mail e senha.
+- **Página de Cadastro de Usuário**: Responsável por realizar a aquisição oficial de planos de usuários, solicitando informações como nome, e-mail, CPF, senha e confirmação de senha.
+- **Página de Treino Personalizado**: Apresenta os treinos da semana, com 10 exercícios diferentes por dia, sendo cada exercício representado por um card clicável.
+- **Página Explicativa do Exercício**: Oferece informações detalhadas sobre a execução de cada exercício, incluindo nome, equipamento necessário, vídeo demonstrativo e uma breve descrição.
+- **Página do Sobre Nós**: Explica a visão e os valores da ScarFit, além de detalhar o propósito do projeto, os membros fundadores e suas conquistas.
 
-2. **Clone Local:** Depois, clone o repositório forkado para sua máquina.
+## Membros Fundadores
 
-3. **Instale as Dependências:** Entre na pasta do projeto e instale as dependências necessárias.
+- Matheus Scaranello
+- Samuel Pinheiro
+- Thayná Vazzoler
+- Marina Moraes
+- Nickolas Mamede
 
-4. **Inicie o Projeto:** Com as dependências instaladas, inicie o projeto.
+---
 
-5. **Dispositivo ou Emulador:** Finalmente, abra o projeto em seu dispositivo físico ou em um emulador.
-
-## Estrutura de arquivos
-
-O projeto segue uma organização lógica de arquivos, facilitando a manutenção e a compreensão do código:
-
-```
-react-native-expo-boilerplate/
-├── src/
-│   ├── components/
-│   ├── data/
-│   ├── routes/
-│   ├── screens/
-└── App.jsx
-```
-
-## Tecnologias
-
-- [React Native](https://reactnative.dev/)
-- [Expo](https://expo.dev/)
-- [React Navigation](https://reactnavigation.org/)
-
-## Contribuindo
-
-Contribuições são sempre bem-vindas para melhorar o boilerplate. Veja como você pode contribuir:
-
-1. **Fork:** Inicie fazendo um fork do projeto.
-2. **Branch de Feature:** Crie uma branch para sua feature: `git checkout -b minha-feature`.
-3. **Commit:** Faça commits das suas alterações: `git commit -m "feat: minha feature"`.
-4. **Push:** Envie suas alterações para o GitHub: `git push origin minha-feature`.
-5. **Pull Request:** Abra um pull request para a branch principal.
-
-## Licença
-
-Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
-
-## Contato
-
-Se você tiver alguma dúvida sobre o projeto, sinta-se à vontade para me contatar em [meu e-mail](mailto:dev.felipesantos@gmail.com) ou pelo meu [LinkedIn](https://www.linkedin.com/in/92felipesantos).
+Com o ScarFit, estamos comprometidos em ajudar nossos usuários a alcançar seus objetivos de saúde e bem-estar, fornecendo suporte personalizado e uma comunidade de apoio dedicada. Junte-se a nós nesta jornada de superação e fortalecimento!
