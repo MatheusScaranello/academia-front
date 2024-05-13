@@ -29,6 +29,53 @@ const TabRoutes = () => {
           tabBarInactiveTintColor: "#D6D6D6",
         }}
       />
+      <Tab.Screen
+        name="Cadastro"
+        component={Cadastro}
+        screenOptions={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="Login"
+        component={Login}
+        screenOptions={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="Exercicio"
+        component={Exercicio}
+        screenOptions={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="TodosExercicios"
+        component={TodosExercicios}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Feather
+              name="home"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          tabBarLabel: "Inicial",
+          tabBarActiveTintColor: "#131313",
+          tabBarInactiveTintColor: "#D6D6D6",
+        }}
+      />
+      <Tab.Screen
+        name="Treino"
+        component={Treino}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Feather
+              name="home"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          tabBarLabel: "Inicial",
+          tabBarActiveTintColor: "#131313",
+          tabBarInactiveTintColor: "#D6D6D6",
+        }}
+      />
     </Tab.Navigator>
   );
 };
