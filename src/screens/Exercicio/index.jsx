@@ -1,6 +1,14 @@
 import { Text, View } from "react-native";
 import styles from "./styles";
+import { useNavigation } from "@react-navigation/native";
 
-export default function Cadastro() {
-  return <View style={styles.container}></View>;
+export default function Cadastro({ route }) {
+  const { data } = route.params;
+  const navigation = useNavigation();
+
+  return (
+    <View style={styles.container}>
+      <Text>{data.nome}</Text>
+    </View>
+  );
 }
