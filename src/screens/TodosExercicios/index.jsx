@@ -44,7 +44,35 @@ export default function Cadastro() {
       <Text style={styles.text}>Todos Exercícios</Text>
       <View style={styles.contCad}>
         {/* fazer cards do grupo muscular */}
-
+        {
+          grupoMuscular =! "" ?  separarGrupos().map((grupo) => {
+            return (
+              <TouchableOpacity
+                style={styles.card}
+                key={grupo.id}
+                onPress={() => {
+                  setGrupoMuscular(grupo.id);
+                  exerciciosPorGrupo();
+                }}
+              >
+                <Text style={styles.textCard}>{grupo.nome}</Text>
+              </TouchableOpacity>
+            );
+          })
+          : exerciciosPorGrupo().map((exercicio) => {
+            return (
+              <TouchableOpacity
+                style={styles.card}
+                key={exercicio.id}
+                onPress={() => {
+                  navigation.navigate("Exercicio", { id: exercicio.id });
+                }}
+              >
+                <Text style={styles.textCard}>{exercicio.nome}</Text>
+              </TouchableOpacity>
+            );
+          })
+        }
         </View>
       </View>
   );
