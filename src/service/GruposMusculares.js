@@ -9,7 +9,7 @@ const api = axios.create({
 const apiGruposMusculares = {
   getAllGruposMusculares: async () => {
     try {
-      const response = await api.get("/grupos_musculares");
+      const response = await api.get("/gruposMusculares");
       console.log(response.data);
       return response.data;
     } catch (error) {
@@ -18,7 +18,7 @@ const apiGruposMusculares = {
   },
   getByIdGruposMusculares: async (id) => {
     try {
-      const response = await api.get(`/grupos_musculares/${id}`);
+      const response = await api.get(`/gruposMusculares/${id}`);
       console.log(response.data);
       return response.data;
     } catch (error) {
@@ -27,7 +27,7 @@ const apiGruposMusculares = {
   },
   postGruposMusculares: async () => {
     try {
-      const response = await api.post("/grupos_musculares");
+      const response = await api.post("/gruposMusculares");
       console.log(response.data);
       return response.data;
     } catch (error) {
@@ -36,7 +36,7 @@ const apiGruposMusculares = {
   },
   putGruposMusculares: async (id) => {
     try {
-      const response = await api.put(`/grupos_musculares/${id}`);
+      const response = await api.put(`/gruposMusculares/${id}`);
       console.log(response.data);
       return response.data;
     } catch (error) {
@@ -45,7 +45,7 @@ const apiGruposMusculares = {
   },
   deleteGruposMusculares: async (id) => {
     try {
-      const response = await api.delete(`/grupos_musculares/${id}`);
+      const response = await api.delete(`/gruposMusculares/${id}`);
       console.log(response.data);
       return response.data;
     } catch (error) {

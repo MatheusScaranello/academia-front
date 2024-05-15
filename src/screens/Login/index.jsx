@@ -9,9 +9,10 @@ export default function Login() {
   const [senha, setSenha] = useState('');
   const navigation = useNavigation;
 
+  const [erro, setErro] = useState(false);
+
   const Logen = async () => {
     try {
-      
       await apiUsuarios.VerificarSenha(senha, email);
         console.log('Login realizado com sucesso!');
         navigation.navigate("Home");
@@ -67,21 +68,3 @@ export default function Login() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  backgroundImage: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
-    width: "100%",
-    height: "100%",
-    zIndex: -1,
-  },
-  contLoge: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
