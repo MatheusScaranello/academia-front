@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
@@ -8,7 +8,15 @@ export default function Exercicio({ route }) {
 
   return (
     <View style={styles.container}>
-      <Text>{data.nome}</Text>
+      <Text style={styles.title}>Exercicio</Text>
+      <Text style={styles.text}>Nome: {data.name}</Text>
+      <Text style={styles.text}>Descrição: {data.description}</Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("Home")}
+      >
+        <Text style={styles.buttonText}>Voltar</Text>
+      </TouchableOpacity>
     </View>
   );
 }
