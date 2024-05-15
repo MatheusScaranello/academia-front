@@ -25,6 +25,15 @@ const apiUsuarios = {
       throw new Error("Erro ao buscar Usuarios pelo id: " + error.message);
     }
   },
+  getUsuariosLogin: async (id) => {
+    try {
+      const response = await api.get(`/usuarios/${senha}/${email}`);
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      throw new Error("Erro ao logar usuario : " + error.message);
+    }
+  },
   postUsuarios: async () => {
     try {
       const response = await api.post("/usuarios");
