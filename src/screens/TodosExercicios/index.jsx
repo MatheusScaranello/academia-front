@@ -43,7 +43,6 @@ export default function Cadastro() {
     <View style={styles.container}>
       <Text style={styles.text}>Todos Exercícios</Text>
       <View style={styles.contCad}>
-        {/* fazer cards do grupo muscular */}
         {
           grupoMuscular =! "" ?  separarGrupos().map((grupo) => {
             return (
