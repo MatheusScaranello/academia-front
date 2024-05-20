@@ -16,6 +16,7 @@ const apiUsuarios = {
       throw new Error("Erro ao buscar empresas: " + error.message);
     }
   },
+
   getByIdUsuarios: async (id) => {
     try {
       const response = await api.get(`/usuarios/${id}`);
@@ -25,7 +26,7 @@ const apiUsuarios = {
       throw new Error("Erro ao buscar Usuarios pelo id: " + error.message);
     }
   },
-  getUsuariosLogin: async (id) => {
+  getUsuariosLogin: async (senha,email) => {
     try {
       const response = await api.get(`/usuarios/${senha}/${email}`);
       console.log(response.data);
