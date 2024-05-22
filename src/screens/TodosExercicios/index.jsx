@@ -2,7 +2,6 @@ import { Text, View, TouchableOpacity, ScrollView } from "react-native";
 import styles from "./styles";
 import React, { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import apiExercicios from "../../service/Exercicios";
 import apiGruposMusculares from "../../service/GruposMusculares";
 
 export default function Cadastro() {
@@ -66,7 +65,7 @@ export default function Cadastro() {
               <TouchableOpacity
                 style={styles.card}
                 key={exe.id}
-                onPress={() => navigation.navigate("Exercicio" ,{ id: item.id })}
+                onPress={() => navigation.navigate("Exercicio" ,{ id: exe.id })}
               >
                 <Text style={styles.nomeCard}>{exe.nome_exercicio}</Text>
               </TouchableOpacity>

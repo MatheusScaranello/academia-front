@@ -3,7 +3,7 @@ import styles from "./styles";
 
 export default function Treino({ route }) {
   const { id } = route.params;
-  
+
   useEffect(() => {
     const fetchGruposMusculares = async () => {
       try {
@@ -20,7 +20,7 @@ export default function Treino({ route }) {
   }, []);
 
   return <View style={styles.container}>{
-    id.map((item, index) => (
+    set.map((item, index) => (
       <View key={index}>
         <Text style={styles.title}>Treino</Text>
         <Text style={styles.text}>{item.exercicio1.nome}</Text>
