@@ -28,7 +28,7 @@ const apiUsuarios = {
   },
   getUsuariosLogin: async (senha,email) => {
     try {
-      const response = await api.get(`/usuarios/${senha}/${email}`);
+      const response = await api.get(`/usuarios/login/${senha}/${email}`);
       console.log(response.data);
       return response.data;
     } catch (error) {
