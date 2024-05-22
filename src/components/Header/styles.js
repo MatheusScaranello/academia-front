@@ -6,11 +6,13 @@ export default StyleSheet.create({
     justifyContent: "flex-start",
   },
   header: {
-    backgroundColor: "rgba(0, 0, 0, 0.6)", // Cor preta com 50% de opacidade
+    backgroundColor: "rgba(128, 128, 128, 0.5)", 
+    opacity: 0.9,
     padding: 2,
     alignItems: "center",
-    width: 1000, 
+    width: 1000,
   },
+  
   logo: {
     width: 140,
     height: 130,
