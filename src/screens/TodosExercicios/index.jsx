@@ -66,7 +66,7 @@ export default function Cadastro() {
               <TouchableOpacity
                 style={styles.card}
                 key={exe.id}
-                onPress={() => navigation.navigate("Treino", { id: exe.id })}
+                onPress={() => navigation.navigate("Treino")}
               >
                 <Text style={styles.nomeCard}>{exe.nome_exercicio}</Text>
               </TouchableOpacity>
