@@ -13,7 +13,7 @@ export default function Exercicio({ route }) {
       <Text style={styles.text}>Descrição: {data.description}</Text>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate("Home")}
+        onPress={() => navigation.navigate("TodosExercicios")}
       >
         <Text style={styles.buttonText}>Voltar</Text>
       </TouchableOpacity>
