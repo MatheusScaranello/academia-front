@@ -1,110 +1,80 @@
+import { Text, View, TouchableOpacity, ScrollView } from "react-native";
+import styles from "./styles";
 import React, { useState, useEffect } from "react";
-import {
-  Text,
-  View,
-  TouchableOpacity,
-  TextInput,
-  FlatList,
-  StyleSheet,
-} from "react-native";
-import styles from "../Treino/styles";
 import { useNavigation } from "@react-navigation/native";
 import apiExercicios from "../../service/Exercicios";
-import apiGrupoMusculo from "../../service/GruposMusculares";
-export default function TodosExercicios() {
-  const [nome, setNome] = useState("");
-  const [grupoMuscular, setGrupoMuscular] = useState("");
-  const [erro, setErro] = useState(false);
-  const [msgErro, setMsgErro] = useState("");
+import apiGruposMusculares from "../../service/GruposMusculares";
+
+export default function Cadastro() {
+  const [grupoMuscular, setGrupoMuscular] = useState(null);
   const [gruposMusculares, setGruposMusculares] = useState([]);
   const [exercicios, setExercicios] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [erro, setErro] = useState(false);
+  const [msgErro, setMsgErro] = useState("");
   const navigation = useNavigation();
 
   useEffect(() => {
-    async function fetchGruposMusculares() {
+    const fetchGruposMusculares = async () => {
       try {
-        const response = await apiGrupoMusculo.getAllGruposMusculares();
+        const response = await apiGruposMusculares.getAllGruposMusculares();
         setGruposMusculares(response);
       } catch (error) {
+        console.error("Erro ao buscar grupos musculares:", error.message);
         setErro(true);
         setMsgErro("Erro ao buscar grupos musculares");
       }
-    }
+    };
 
     fetchGruposMusculares();
   }, []);
 
-  const exerciciosPorGrupo = async (grupoMuscular) => {
-    try {
-      const response = await apiExercicios.getAllExercicios();
-      const filteredExercicios = response.filter(
-        (exercicio) => exercicio.grupoMuscular === grupoMuscular
-      );
-      setExercicios(filteredExercicios);
-    } catch (error) {
-      setErro(true);
-      setMsgErro("Erro ao buscar exercícios por grupo muscular");
-    }
-  };
+  useEffect(() => {
+    const fetchExercicios = async () => {
+      if (grupoMuscular && grupoMuscular.id) {
+        try {
+          const response = await apiGruposMusculares.getExerciciosPorGrupoMuscular(grupoMuscular.id);
+          setExercicios(Array.isArray(response) ? response : []);
+          console.log(setExercicios)
+        } catch (error) {
+          console.error("Erro ao buscar exercicios por grupo muscular:", error.message);
+          setErro(true);
+          setMsgErro("Erro ao buscar exercicios por grupo muscular");
+        }
+      }
+    };
 
-  const searchExercicio = async () => {
-    try {
-      const response = await apiGrupoMusculo.searchExercicio(searchTerm);
-      setExercicios(response);
-    } catch (error) {
-      setErro(true);
-      setMsgErro("Erro ao buscar exercícios");
-    }
-  };
+    fetchExercicios();
+  }, [grupoMuscular]);
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Todos Exercícios</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Buscar Exercício"
-        value={searchTerm}
-        onChangeText={(text) => setSearchTerm(text)}
-        onSubmitEditing={searchExercicio}
-      />
-      <View style={styles.contCad}>
-        {grupoMuscular === "" ? (
-          <FlatList
-            data={gruposMusculares}
-            renderItem={({ item }) => (
+    <ScrollView>
+      <View style={styles.container}>
+        <Text style={styles.text}>Todos Exercícios</Text>
+        <View style={styles.contCad}>
+          {!grupoMuscular ? (
+            gruposMusculares.map((grupo) => (
               <TouchableOpacity
                 style={styles.card}
-                key={item.id}
-                onPress={() => {
-                  setGrupoMuscular(item.id);
-                  exerciciosPorGrupo(item.id);
-                }}
+                key={grupo.id}
+                onPress={() => setGrupoMuscular(grupo)}
               >
-                <Text style={styles.textCard}>{item.nome}</Text>
+                <Text style={styles.textCard}>{grupo.nome}</Text>
               </TouchableOpacity>
-            )}
-            keyExtractor={(item) => item.id.toString()}
-          />
-        ) : (
-          <FlatList
-            data={exercicios}
-            renderItem={({ item }) => (
+            ))
+          ) : (
+            exercicios.map((exe) => (
               <TouchableOpacity
                 style={styles.card}
-                key={item.id}
-                onPress={() => {
-                  navigation.navigate("Exercicio", { id: item.id });
-                }}
+                key={exe.id}
+                onPress={() => navigation.navigate("Treino")}
               >
-                <Text style={styles.textCard}>{item.nome}</Text>
+                <Text style={styles.nomeCard}>{exe.nome_exercicio}</Text>
               </TouchableOpacity>
-            )}
-            keyExtractor={(item) => item.id.toString()}
-          />
-        )}
+            ))
+          )}
+        </View>
+        {erro && <Text style={styles.error}>{msgErro}</Text>}
       </View>
-      {erro && <Text style={styles.error}>{msgErro}</Text>}
-    </View>
+    </ScrollView>
   );
 }
