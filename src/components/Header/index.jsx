@@ -8,7 +8,7 @@ export default function Header() {
       <View style={styles.header}>
         <Image
           style={styles.logo}
-          source={require("")}
+          source={require("../../../assets/logo.png")}
         />
       </View>
     </View>
