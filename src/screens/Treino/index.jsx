@@ -2,9 +2,25 @@ import { Text, View } from "react-native";
 import styles from "./styles";
 
 export default function Treino({ route }) {
-  const { data } = route.params;
+  const { id } = route.params;
+  
+  useEffect(() => {
+    const fetchGruposMusculares = async () => {
+      try {
+        const response = await apiGruposMusculares.getAllGruposMusculares();
+        setGruposMusculares(response);
+      } catch (error) {
+        console.error("Erro ao buscar grupos musculares:", error.message);
+        setErro(true);
+        setMsgErro("Erro ao buscar grupos musculares");
+      }
+    };
+
+    fetchGruposMusculares();
+  }, []);
+
   return <View style={styles.container}>{
-    data.map((item, index) => (
+    id.map((item, index) => (
       <View key={index}>
         <Text style={styles.title}>Treino</Text>
         <Text style={styles.text}>{item.exercicio1.nome}</Text>
