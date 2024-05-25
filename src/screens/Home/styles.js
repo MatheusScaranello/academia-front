@@ -7,6 +7,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#000",
   },
+  content: {
+    alignItems: "center",
+    marginBottom: 600,
+  },
+  texto: {
+    color: "#E8C185",
+    fontSize: 30,
+    fontWeight: "bold",
+
+   
+  },
 });
 
 export default styles;
