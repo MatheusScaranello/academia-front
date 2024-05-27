@@ -20,7 +20,8 @@ const apiExercicios = {
     try {
       const response = await api.get(`/exercicios/${id}`);
       console.log(response.data);
-      return response.data;
+      console.log(response);
+      return response;
     } catch (error) {
       throw new Error("Erro ao buscar exercicios pelo id: " + error.message);
     }

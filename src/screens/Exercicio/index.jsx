@@ -13,7 +13,7 @@ export default function Exercicio({ route }) {
     const fetchData = async () => {
       try {
         const response = await apiExercicios.getByIdExercicios(id);
-      return  setExercicios(response.data);
+        setExercicios(response.data);
       } catch (error) {
         console.error("Erro ao buscar os dados:", error);
         setErro(true);
@@ -29,23 +29,18 @@ export default function Exercicio({ route }) {
     };
   }, [id]);
 
-console.log(id)
-console.log(exercicios)
-console.log(setExercicios)
   return (
     <View style={styles.container}>
-      {exercicios && exercicios.length > 0 ? (
-        exercicios.map((exercicio) => (
-          <View key={exercicio.id}>
-            <Text style={styles.title}></Text>
-            <Text style={styles.text}>{exercicio.nome}</Text>
-          </View>
-        ))
-      ) : erro ? (
-        <Text style={styles.error}>{msgErro}</Text>
-      ) : (
-        <Text>Nenhum exercício encontrado.</Text>
-      )}
+      {exercicios.length > 0 ? (
+  <View>
+    <Text style={styles.title}>{exercicios[0].nome}</Text>
+    <Text style={styles.text}>{exercicios[0].descricao}</Text>
+  </View>
+) : erro ? (
+  <Text style={styles.error}>{msgErro}</Text>
+) : (
+  <Text>Carregando...</Text>
+)}
     </View>
   );
 }
