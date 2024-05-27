@@ -1,13 +1,14 @@
 
 import React, { useState } from "react";
-import styles from "./styles";
+
 import {
   Text,
   TouchableOpacity,
   View,
   TextInput,
   ScrollView,
-  ImageBackground
+  ImageBackground,
+  StyleSheet,
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
