@@ -9,6 +9,12 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         marginTop: 30,
     },
+    description: {
+        color: "white",
+    },
+    description2: {
+        color: "#FCD89E",
+    },
 });
 
 export default styles;
