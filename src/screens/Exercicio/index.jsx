@@ -20,27 +20,20 @@ export default function Exercicio({ route }) {
         setMsgErro("Erro ao buscar os dados. Por favor, tente novamente mais tarde.");
       }
     };
-
     fetchData();
-
-    // Cleanup function
-    return () => {
-      // Cleanup code if necessary
-    };
-  }, [id]);
+  }
+  , []);
 
   return (
     <View style={styles.container}>
-      {exercicios.length > 0 ? (
-  <View>
-    <Text style={styles.title}>{exercicios[0].nome}</Text>
-    <Text style={styles.text}>{exercicios[0].descricao}</Text>
-  </View>
-) : erro ? (
-  <Text style={styles.error}>{msgErro}</Text>
-) : (
-  <Text>Carregando...</Text>
-)}
+      {erro ? (
+        <Text style={styles.text}>{msgErro}</Text>
+      ) : (
+        <View>
+          <Text style={styles.titulo}>{exercicios.titulo}</Text>
+          <Text style={styles.text}>{exercicios.descricao}</Text>
+        </View>
+      )}
     </View>
   );
 }
