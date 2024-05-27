@@ -2,21 +2,22 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "flex-start",
-    alignItems: "center", // Adicionei alignItems para centralizar os itens horizontalmente
-    backgroundColor: "#FFF", // Adicionei uma cor de fundo para o container
+    container: {
+      flex: 1,
+      justifyContent: "flex-start",
+    },
   },
   header: {
-    backgroundColor: "#fff",
+    backgroundColor: "#474747",
     opacity: 0.9,
-    paddingVertical: 10, // Ajustei o padding para uma quantidade igual em todos os lados
+    padding: 2,
     alignItems: "center",
-    width: "100%",
-    marginBottom: 20, // Adicionei margem inferior para separar o cabeçalho do conteúdo abaixo
+    width: 1000,
   },
   logo: {
-    width: 140,
-    height: 130,
+    width: 120,
+    height: 120,
+    top: 35,
+    marginLeft: 20,
   },
 });
