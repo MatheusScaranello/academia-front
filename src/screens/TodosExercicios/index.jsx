@@ -45,10 +45,6 @@ export default function Cadastro() {
     fetchExercicios();
   }, [grupoMuscular]);
 
-  const exeFind = (id) => {
-    const exe = exercicios.find((exe) => exe.id === id);
-    return exe;
-  };
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -69,7 +65,7 @@ export default function Cadastro() {
               <TouchableOpacity
                 style={styles.card}
                 key={exe.id}
-                onPress={() => navigation.navigate("Exercicio" ,{ exercicio: exeFind(exe.id)})}
+                onPress={() => navigation.navigate("Exercicio" ,{ id: exe.id })}
               >
                 <Text style={styles.nomeCard}>{exe.nome_exercicio}</Text>
               </TouchableOpacity>

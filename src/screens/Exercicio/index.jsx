@@ -13,26 +13,42 @@ export default function Exercicio({ route }) {
     const fetchData = async () => {
       try {
         const response = await apiExercicios.getByIdExercicios(id);
-        setExercicios(response.data);
+        console.log("mensagem da api:",response);
+        console.log("dados da api:",response.data);
+      return  setExercicios(response);
+    
       } catch (error) {
         console.error("Erro ao buscar os dados:", error);
         setErro(true);
         setMsgErro("Erro ao buscar os dados. Por favor, tente novamente mais tarde.");
       }
     };
-    fetchData();
-  }
-  , []);
 
+    fetchData();
+
+    // Cleanup function
+    return () => {
+      // Cleanup code if necessary
+    };
+  }, [id]);
+
+console.log(id)
+console.log(exercicios)
+console.log(setExercicios)
   return (
     <View style={styles.container}>
-      {erro ? (
-        <Text style={styles.text}>{msgErro}</Text>
+      {exercicios && exercicios.length > 0 ? (
+        exercicios.map((exercicio) => (
+          <View key={exercicio.id}>
+            <Text style={styles.title}></Text>
+            <Text style={styles.text}>{exercicio.nome}</Text>
+            <Text style={styles.text}>{exercicio.descricao}</Text>
+          </View>
+        ))
+      ) : erro ? (
+        <Text style={styles.error}>{msgErro}</Text>
       ) : (
-        <View>
-          <Text style={styles.titulo}>{exercicios.titulo}</Text>
-          <Text style={styles.text}>{exercicios.descricao}</Text>
-        </View>
+        <Text>Nenhum exercício encontrado.</Text>
       )}
     </View>
   );
