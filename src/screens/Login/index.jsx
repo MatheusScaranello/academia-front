@@ -1,43 +1,56 @@
-
+// Importa o React e os hooks useState do React
 import React, { useState } from "react";
+// Importa os estilos definidos no arquivo styles.js
 import styles from "./styles";
+// Importa os componentes do React Native
 import {
   Text,
   TouchableOpacity,
   View,
   TextInput,
   ScrollView,
-  ImageBackground
+  ImageBackground,
 } from "react-native";
+// Importa o ícone Feather da biblioteca expo-vector-icons
 import { Feather } from "@expo/vector-icons";
+// Importa o hook de navegação do React Navigation
 import { useNavigation } from "@react-navigation/native";
+// Importa o serviço de usuários para fazer chamadas à API
 import apiUsuarios from "../../service/Usuarios";
 
+// Define o componente funcional Login
 export default function Login() {
+  // Define estados para armazenar o email, senha, status de erro e mensagem de erro
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState(false);
   const [msgErro, setMsgErro] = useState("");
+  // Obtém o objeto de navegação
   const navigation = useNavigation();
 
+  // Função assíncrona para realizar o login
   const Logen = async () => {
     try {
+      // Verifica se os campos de email e senha estão preenchidos
       if (!email || !senha) {
         setErro(true);
         setMsgErro("Preencha todos os campos");
         return;
       }
+      // Chama a API para autenticar o usuário
       await apiUsuarios.getUsuariosLogin(senha, email);
       console.log("Login realizado com sucesso!");
+      // Navega para a tela Home após o login bem-sucedido
       navigation.navigate("Home");
     } catch (error) {
+      // Define o estado de erro e a mensagem de erro se a autenticação falhar
       setErro(true);
       setMsgErro("Usuário não existe, cadastre-se");
     }
   };
 
+  // Renderiza a interface do componente Login
   return (
-    
     <ImageBackground
       source={require("../../../assets/imageLogin.png")}
       style={styles.backgroundImage}
@@ -96,13 +109,13 @@ export default function Login() {
   );
 }
 
+// Define o objeto de estilos usando StyleSheet do React Native
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
-
   bottomText: {
     fontSize: 15,
     color: "white",
@@ -138,21 +151,17 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0, 0, 0, 0.3)",
     width: "90%",
     height: "90%",
-
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 10,
     borderWidth: 3,
     borderColor: "#E8C185",
-
     marginTop: 100,
-    marginBottom:20
-
+    marginBottom: 20,
   },
   input: {
     color: "white",
     opacity: 0.9,
-
     width: "90%",
     height: "80%",
     fontSize: 20,
@@ -161,7 +170,6 @@ const styles = StyleSheet.create({
   },
   button: {
     width: 180,
-
     height: 50,
     opacity: 0.9,
     backgroundColor: "#E8C185",
@@ -188,5 +196,4 @@ const styles = StyleSheet.create({
     top: "50%",
     transform: [{ translateY: -10 }],
   },
-
 });
