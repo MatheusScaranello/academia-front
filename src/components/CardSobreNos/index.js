@@ -5,17 +5,39 @@ import styles from "./styles";
 const members = [
     {
         id: 1,
-        name: "John Doe",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-       image: require("../../../assets/imageLogin.png"),
+        image: require("../../../assets/matheus.png"),
+        name: "Matheus Scaranello",
+        description2: "Gerente Chefe",
+        description: " assegurando que os objetivos do aplicativo sejam cumpridos de forma eficiente e colaborativa.",
     },
     {
         id: 2,
-        name: "Jane Smith",
-        description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-       image: require("../../../assets/imageLogin.png"),
+        image: require("../../../assets/marina.png"),
+        name: "Marina Morais",
+        description:"Design UI e UX",
+        description: "Responsável por criar interfaces de usuário intuitivas e experiências de usuário,garantindo um funcionamento, atraente e fáceis de usar.",
     },
-    // Add more members as needed
+    {
+        id: 3,
+        image: require("../../../assets/nickolas.png"),
+        name: "Nickolas Lira",
+        description2: "Documentador Têcnico",
+        description: "responsável por criar e manter a documentação técnica precisa e compreensível para o aplicativo Scarfit.suporte para usuários finais.",
+    },
+    {
+        id: 4,
+        image: require("../../../assets/samuel.png"),
+        name: "Samuel Pinheiro",
+        description2: "Desenvolvedor",
+        description: "responsável por contribuir para o desenvolvimento, manutenção e melhoria contínua do aplicativo Scarfit.",
+    },
+    {
+        id: 5,
+        image: require("../../../assets/thayna.png"),
+        name: "Thayná Marques",
+        description2: "Design UI e UX",
+        description: "Responsável por criar interfaces de usuário intuitivas e experiências de usuário,garantindo um funcionamento, atraente e fáceis de usar.",
+    }
 ];
 
 export default function CardSobreNos({ image, title, description, description2 }) { // Correctly destructured props
