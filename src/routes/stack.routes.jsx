@@ -1,13 +1,13 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import TodosExercicios from "../screens/TodosExercicios";
+import SobreNos from "../screens/SobreNos";
 
 const Stack = createNativeStackNavigator();
 
 const StackRoutes = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="TodosExercicios" component={TodosExercicios} />
+      <Stack.Screen name="SobreNos" component={SobreNos} />
     </Stack.Navigator>
   );
 };
