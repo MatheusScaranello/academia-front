@@ -1,12 +1,11 @@
 
-
 import React, { useState } from "react";
+import styles from "./styles";
 import {
   Text,
   TouchableOpacity,
   View,
   TextInput,
-  StyleSheet,
   ScrollView,
   ImageBackground
 } from "react-native";
@@ -38,7 +37,7 @@ export default function Login() {
   };
 
   return (
-
+    
     <ImageBackground
       source={require("../../../assets/imageLogin.png")}
       style={styles.backgroundImage}
@@ -96,7 +95,6 @@ export default function Login() {
     </ImageBackground>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -192,5 +190,3 @@ const styles = StyleSheet.create({
   },
 
 });
-
-
