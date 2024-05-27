@@ -53,7 +53,7 @@ export default function CardSobreNos({ image, title, description, description2 }
                 <View key={member.id} style={styles.slide}>
                     <Image source={member.image} style={styles.image} />
                     <Text style={styles.memberName}>{member.name}</Text>
-                    <Text style={styles.description}>{member.description}</Text>
+                    <Text style={styles.descriptionMember}>{member.description}</Text>
                 </View>
             ))}
         </ScrollView>
