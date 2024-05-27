@@ -19,39 +19,6 @@ export default function SobreNos() {
                         "3. Estilo",
                     ]}
                 />
-                <CardSobreNos
-                    title="Quem Somos"
-                    description={[
-                        "Nossos produtos são feitos com materiais de alta qualidade,",
-                        "garantindo a durabilidade e resistência dos mesmos.",
-                    ]}
-                    description2={[
-                        "A Scarfit se preocupa com a qualidade dos produtos,",
-                        "para que você possa treinar com segurança e conforto.",
-                    ]}
-                />
-                <CardSobreNos
-                    title="Nossos Valores"
-                    description={[
-                        "A Scarfit se preocupa com a qualidade dos produtos,",
-                        "para que você possa treinar com segurança e conforto.",
-                    ]}
-                    description2={[
-                        "A Scarfit se preocupa com a qualidade dos produtos,",
-                        "para que você possa treinar com segurança e conforto.",
-                    ]}
-                />
-                      <CardSobreNos
-                    title="Membros da equipe"
-                    description={[
-                        "A Scarfit se preocupa com a qualidade dos produtos,",
-                        "para que você possa treinar com segurança e conforto.",
-                    ]}
-                    description2={[
-                        "A Scarfit se preocupa com a qualidade dos produtos,",
-                        "para que você possa treinar com segurança e conforto.",
-                    ]}
-                />
             </ScrollView>
         </View>
     );

@@ -15,6 +15,13 @@ const styles = StyleSheet.create({
     description2: {
         color: "#FCD89E",
     },
+    image: {
+        width: 200,
+        height: 200,
+        borderRadius: 100,
+        marginBottom: 10,
+
+    },
 });
 
 export default styles;
