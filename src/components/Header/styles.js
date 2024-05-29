@@ -2,10 +2,8 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   container: {
-    container: {
-      flex: 1,
-      justifyContent: "flex-start",
-    },
+    flex: 1,
+    justifyContent: "flex-start",
   },
   header: {
     backgroundColor: "#474747",
@@ -17,7 +15,7 @@ export default StyleSheet.create({
   logo: {
     width: 120,
     height: 120,
-    top: 35,
+    top: 10,
     marginLeft: 20,
   },
 });

@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     marginBottom: 20, // Adicionei margem inferior para separar o texto do carrossel
-    marginTop: 55, // Adicionei margem superior para separar o texto do topo
+    marginTop: 50, // Adicionei margem superior para separar o texto do topo
   },
 
   imgfundo: {
@@ -45,16 +45,12 @@ const styles = StyleSheet.create({
     fontSize: 15,
     textAlign: "center",
   },
-  botaoVerMais: {
-    backgroundColor: "#E8C185",
-    padding: 10,
-    borderRadius: 10,
-    marginTop: 10, // Adicionei margem superior para separar o botão do texto
-  },
   textVerMais: {
     color: "#fff",
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: "bold",
+    marginTop: -70, // Adicionei margem superior para separar o texto do botão
+    marginBottom: 45, // Adicionei margem superior para separar o texto do botão
   },
   carrossel: {
     position: "absolute",
@@ -63,6 +59,29 @@ const styles = StyleSheet.create({
   fundo: {
     position: "relative",
     top: 130, // Ajustei o valor para 50 para posicionar o fundo abaixo do carrossel
+  },
+  textoBnt: {
+    color: "#FFFFFF",
+    fontSize: 20,
+    fontWeight: "bold",
+    marginTop: 10, // Adicionei margem superior para separar os botões
+  },
+  botaoCategorias: {
+    borderColor: "#E8C185",
+    borderWidth: 2,
+    width: 300,
+    alignItems: "center",
+    height: 150,
+    justifyContent: "center",
+    backgroundColor: "gray",
+    padding: 10,
+    borderRadius: 10,
+    marginBottom: 20, // Adicionei margem inferior para separar os botões
+  },
+  img: {
+    width: 100,
+    height: 100,
+    marginBottom: 10, // Adicionei margem inferior para separar a imagem do texto
   },
 });
 
