@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
   descriptionMember: {
     color: "white",
     textAlign: "center",
+    color: "#FCD89E",
     fontSize: 15,
     marginBottom: 10,
     paddingLeft: 10,
@@ -34,13 +35,11 @@ const styles = StyleSheet.create({
     paddingRight: 10,
   },
   image: {
-    marginLeft: 25,
-    alignItems: "center",
-    width: 200,
-    height: 200,
+    //deixe a imagem reta dos lados e arredondada em cima e embaixo
     borderRadius: 100,
+    width: 150,
+    height: 150,
     marginBottom: 10,
-    marginRight: 10,
   },
   memberName: {
     color: "white",
@@ -53,7 +52,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(255, 255, 255, 0.5)",
     alignItems: "center",
     justifyContent: "center",
-    width: 220, // Ajuste o valor conforme necessário para reduzir a largura
+    width: 220,
     height: 350,
     margin: 10,
     borderColor: "#FCD89E",
