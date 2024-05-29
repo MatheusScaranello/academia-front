@@ -43,20 +43,29 @@ const styles = StyleSheet.create({
     paddingRight: 10,
   },
   description4: {
-    color: "#FCD89E",
+    position: 'absolute',
+    color: "black",
+    textAlign: "center",
+    fontSize: 25,
+    top: '30%',
+    paddingLeft: '30%',
+    paddingRight: '30%',
+  },
+  description5: {
+    position: 'absolute',
+    color: "black",
     textAlign: "center",
     fontSize: 15,
-    marginBottom: 10,
+    top: '36%',
     paddingLeft: 10,
     paddingRight: 10,
   },
-  description5: {
-    color: "#FCD89E",
-    textAlign: "center",
-    fontSize: 15,
-    marginBottom: 10,
-    paddingLeft: 10,
-    paddingRight: 10,
+  imagebranca: {
+    //deixe no centro
+    alignSelf: "center",
+    width: 400,
+    height: 300,
+
   },
   image: {
     borderRadius: 100,
