@@ -17,8 +17,21 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
   },
+  description: {
+    color: "white",
+    textAlign: "center",
+    fontSize: 15,
+    marginBottom: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
   description2: {
     color: "#FCD89E",
+    textAlign: "center",
+    fontSize: 15,
+    marginBottom: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
   },
   image: {
     marginLeft: 25,
@@ -28,6 +41,13 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     marginBottom: 10,
     marginRight: 10,
+  },
+  memberName: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 5,
+    textAlign: "center",
   },
   slide: {
     backgroundColor: "rgba(255, 255, 255, 0.5)",

@@ -3,6 +3,8 @@ import { View, ScrollView } from "react-native";
 import styles from "./styles";
 import CardSobreNos from "../../components/CardSobreNos";
 
+
+
 export default function SobreNos() {
     return (
         <View style={styles.container}>
