@@ -15,7 +15,7 @@ const members = [
     id: 2,
     image: require("../../../assets/marina.png"),
     name: "Marina Morais",
-    description: "Design UI e UX",
+    description2: "Design UI e UX",
     description:
       "Responsável por criar interfaces de usuário intuitivas e experiências de usuário,garantindo um funcionamento, atraente e fáceis de usar.",
   },
@@ -52,6 +52,8 @@ export default function CardSobreNos({
   description,
   description2,
   description3,
+  description4,
+  description5,
 }) {
   return (
     <View style={styles.container}>
@@ -59,7 +61,9 @@ export default function CardSobreNos({
       <Text style={styles.description}>{description}</Text>
       <Text style={styles.description2}>{description2}</Text>
       <Text style={styles.description3}>{description3}</Text>
-      <Image source={imagebranca} style={styles.imagebranca} />
+          <Image source={imagebranca} style={styles.imagebranca} />
+          <Text style={styles.description4}>{description4}</Text>
+            <Text style={styles.description5}>{description5}</Text>
       <Image source={img} style={styles.img} />
 
       <ScrollView horizontal style={styles.scrollView}>

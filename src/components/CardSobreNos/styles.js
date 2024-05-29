@@ -34,8 +34,15 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
   },
+  description3: {
+    color: "#FCD89E",
+    textAlign: "center",
+    fontSize: 15,
+    marginBottom: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
   image: {
-    //deixe a imagem reta dos lados e arredondada em cima e embaixo
     borderRadius: 100,
     width: 150,
     height: 150,
