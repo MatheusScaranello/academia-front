@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
   },
   textoNoQuadrado: {
     fontSize: 40,
+    marginTop: 25, // Adicionei margem superior para separar o texto do topo
     fontWeight: "bold",
   },
   textoNoQuadrado2: {
