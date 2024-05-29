@@ -42,6 +42,22 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
   },
+  description4: {
+    color: "#FCD89E",
+    textAlign: "center",
+    fontSize: 15,
+    marginBottom: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
+  description5: {
+    color: "#FCD89E",
+    textAlign: "center",
+    fontSize: 15,
+    marginBottom: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
   image: {
     borderRadius: 100,
     width: 150,
