@@ -4,13 +4,12 @@ import styles from "./styles";
 
 export default function Header() {
   return (
-    <View style={styles.container}>
       <View style={styles.header}>
         <Image
           style={styles.logo}
           source={require("../../../assets/logo.png")}
         />
       </View>
-    </View>
+    
   );
 }

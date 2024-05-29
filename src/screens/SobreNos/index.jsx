@@ -2,10 +2,13 @@ import React from "react";
 import { View, ScrollView, Image } from "react-native";
 import styles from "./styles";
 import CardSobreNos from "../../components/CardSobreNos";
+import Header from "../../components/Header";
 
 export default function SobreNos() {
   return (
+    
     <View style={styles.container}>
+      <Header />
       <ScrollView style={styles.scroll}>
         <CardSobreNos
           title="Sobre a ScarFit"

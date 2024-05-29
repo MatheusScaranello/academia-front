@@ -47,7 +47,7 @@ const members = [
 
 export default function CardSobreNos({
   imagebranca,
-  img,
+  image,
   title,
   description,
   description2,
@@ -64,7 +64,7 @@ export default function CardSobreNos({
           <Image source={imagebranca} style={styles.imagebranca} />
           <Text style={styles.description4}>{description4}</Text>
             <Text style={styles.description5}>{description5}</Text>
-      <Image source={img} style={styles.img} />
+      <Image source={image} style={styles.image} />
 
       <ScrollView horizontal style={styles.scrollView}>
         {members.map((member) => (
