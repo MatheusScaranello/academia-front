@@ -7,12 +7,11 @@ const styles = StyleSheet.create({
   slide: {
     justifyContent: "center",
     alignItems: "center",
-    margin: 50,
+    margin: 10,
   },
   image: {
-    width: 1000, // Adjust as needed
-    height: 400, // Adjust as needed
-    resizeMode: "cover",
+    width: 450,
+    height: 200,
   },
 });
 

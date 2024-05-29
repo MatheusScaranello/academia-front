@@ -9,24 +9,16 @@ const styles = StyleSheet.create({
   },
   content: {
     alignItems: "center",
-    marginBottom: 20, // Ajustei o valor para 20 para ajustar o espaçamento
+    marginBottom: 30, // Ajustei o valor para 20 para ajustar o espaçamento
   },
   texto: {
     color: "#E8C185",
     fontSize: 30,
     fontWeight: "bold",
-    marginTop: 30, // Adicionei margem superior para separar o texto do topo
+    marginBottom: 20, // Adicionei margem inferior para separar o texto do carrossel
+    marginTop: 55, // Adicionei margem superior para separar o texto do topo
   },
-  slide: {
-    justifyContent: "center",
-    alignItems: "center",
-    margin: 5,
-  },
-  image: {
-    width: 400,
-    height: 160,
-    resizeMode: "cover",
-  },
+
   imgfundo: {
     marginBottom: 150, // Adicionei margem superior para separar a imagem do texto
     width: 700,
@@ -45,11 +37,11 @@ const styles = StyleSheet.create({
     right: 150,
   },
   textoNoQuadrado: {
-    fontSize: 50,
+    fontSize: 40,
     fontWeight: "bold",
   },
   textoNoQuadrado2: {
-    fontSize: 10,
+    fontSize: 15,
     textAlign: "center",
   },
   botaoVerMais: {
@@ -60,8 +52,16 @@ const styles = StyleSheet.create({
   },
   textVerMais: {
     color: "#fff",
-    fontSize: 15,
+    fontSize: 20,
     fontWeight: "bold",
+  },
+  carrossel: {
+    position: "absolute",
+    top: 100, // Ajustei o valor para 100 para posicionar o carrossel abaixo do texto
+  },
+  fundo: {
+    position: "relative",
+    top: 130, // Ajustei o valor para 50 para posicionar o fundo abaixo do carrossel
   },
 });
 
