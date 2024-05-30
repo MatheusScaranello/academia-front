@@ -1,3 +1,4 @@
+// SobreNos.js
 import React from "react";
 import { View, ScrollView, Image } from "react-native";
 import styles from "./styles";
@@ -6,10 +7,9 @@ import Header from "../../components/Header";
 
 export default function SobreNos() {
   return (
-    
     <View style={styles.container}>
-      <Header />
       <ScrollView style={styles.scroll}>
+      <Header />
         <CardSobreNos
           title="Sobre a ScarFit"
           description={[

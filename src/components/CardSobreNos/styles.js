@@ -1,18 +1,20 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+  },
   title: {
     fontSize: 32,
     fontWeight: "bold",
     color: "#FCD89E",
     textAlign: "center",
     marginBottom: 10,
-    marginTop: 30,
   },
   descriptionMember: {
     color: "white",
     textAlign: "center",
-    color: "#FCD89E",
     fontSize: 15,
     marginBottom: 10,
     paddingLeft: 10,
@@ -43,29 +45,22 @@ const styles = StyleSheet.create({
     paddingRight: 10,
   },
   description4: {
-    position: 'absolute',
     color: "#FCD89E",
     textAlign: "center",
     fontSize: 25,
-    top: '30%',
-    paddingLeft: '30%',
-    paddingRight: '35%',
+    marginBottom: 10,
   },
   description5: {
-    position: 'absolute',
     color: "#FCD89E",
     textAlign: "center",
     fontSize: 15,
-    top: '36%',
-    paddingLeft: 10,
-    paddingRight: 10,
+    marginBottom: 10,
   },
   imagebranca: {
-    //deixe no centro
     alignSelf: "center",
     width: 400,
     height: 300,
-
+    marginBottom: 10,
   },
   image: {
     borderRadius: 100,
