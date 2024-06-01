@@ -4,7 +4,6 @@ import styles from "./styles";
 
 const members = [
   {
-    id: 1,
     image: require("../../../assets/matheus.png"),
     name: "Matheus Scaranello",
     description2: "Gerente Chefe",
@@ -12,7 +11,6 @@ const members = [
       " assegurando que os objetivos do aplicativo sejam cumpridos de forma eficiente e colaborativa.",
   },
   {
-    id: 2,
     image: require("../../../assets/marina.png"),
     name: "Marina Morais",
     description2: "Design UI e UX",
@@ -20,7 +18,7 @@ const members = [
       "Responsável por criar interfaces de usuário intuitivas e experiências de usuário,garantindo um funcionamento, atraente e fáceis de usar.",
   },
   {
-    id: 3,
+
     image: require("../../../assets/nickolas.png"),
     name: "Nickolas Lira",
     description2: "Documentador Têcnico",
@@ -28,7 +26,6 @@ const members = [
       "responsável por criar e manter a documentação técnica precisa e compreensível para o aplicativo Scarfit.suporte para usuários finais.",
   },
   {
-    id: 4,
     image: require("../../../assets/samuel.png"),
     name: "Samuel Pinheiro",
     description2: "Desenvolvedor",
@@ -36,7 +33,6 @@ const members = [
       "responsável por contribuir para o desenvolvimento, manutenção e melhoria contínua do aplicativo Scarfit.",
   },
   {
-    id: 5,
     image: require("../../../assets/thayna.png"),
     name: "Thayná Marques",
     description2: "Design UI e UX",
@@ -47,7 +43,7 @@ const members = [
 
 export default function CardSobreNos({
   imagebranca,
-  image,
+  imagedois,
   title,
   description,
   description2,
@@ -64,7 +60,7 @@ export default function CardSobreNos({
           <Image source={imagebranca} style={styles.imagebranca} />
           <Text style={styles.description4}>{description4}</Text>
             <Text style={styles.description5}>{description5}</Text>
-      <Image source={image} style={styles.image} />
+      <Image source={imagedois} style={styles.imagedois} />
 
       <ScrollView horizontal style={styles.scrollView}>
         {members.map((member) => (
