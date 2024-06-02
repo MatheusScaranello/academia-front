@@ -50,21 +50,17 @@ const styles = StyleSheet.create({
     textAlign: "left",
     fontSize: 25,
     top: -200,
-    position: "static",
+
   },
   description5: {
-    color: "#FCD89E",
+    color: "black",
     textAlign: "left",
     fontSize: 15,
     position: "absolute",
-    top: 300, // ajuste conforme necessário para a posição vertical
+    top: 350, // ajuste conforme necessário para a posição vertical
     left: 20, // ajuste conforme necessário para a posição horizontal
     zIndex: 1, // para garantir que o texto fique acima da imagem
     width: 240, // largura do texto
-    lineHeight: 25, // altura da linha do texto
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    whiteSpace: "pre-wrap",
     marginBottom: 10,
     paddingLeft: 10,
     paddingRight: 10,
@@ -75,14 +71,19 @@ const styles = StyleSheet.create({
     height: 150,
     marginBottom: 10,
   },
+  imagedois:{
+    top: -200,
+    left: 100,
+  },
   imagebranca: {
     alignSelf: "center",
-    width: 850,
+    width: 880,
     height: 300,
-    top: 20,
+    top: 60,
     left: 0,
     right: 0,
     bottom: 0,
+    
   },
   memberName: {
     color: "white",
