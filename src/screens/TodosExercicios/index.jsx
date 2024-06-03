@@ -5,14 +5,16 @@ import { useNavigation } from "@react-navigation/native";
 import apiGruposMusculares from "../../service/GruposMusculares";
 
 export default function Cadastro() {
+
   const [grupoMuscular, setGrupoMuscular] = useState(null);
   const [gruposMusculares, setGruposMusculares] = useState([]);
-  const [exercicios, setExercicios] = useState([]);
   const [erro, setErro] = useState(false);
   const [msgErro, setMsgErro] = useState("");
+  const [grupos, setGrupos] = useState([]);
   const navigation = useNavigation();
 
   useEffect(() => {
+
     const fetchGruposMusculares = async () => {
       try {
         const response = await apiGruposMusculares.getAllGruposMusculares();
@@ -22,6 +24,43 @@ export default function Cadastro() {
         setErro(true);
         setMsgErro("Erro ao buscar grupos musculares");
       }
+    }
+    carregarGrupos();
+  }, []);
+
+  const exerciciosPorGrupo = async (grupoId) => {
+    try {
+      const response = await apiExercicios.getAllExercicios(grupoId);
+      console.log(response);
+      return response;
+    } catch (error) {
+      console.error(
+        "Erro ao buscar exercicios por grupo muscular:",
+        error.message
+      );
+      setErro(true);
+      setMsgErro("Erro ao buscar exercicios por grupo muscular");
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>Todos Exercícios</Text>
+      <View style={styles.contCad}>
+        {grupos.map((grupo) => (
+          <TouchableOpacity
+            style={styles.card}
+            key={grupo.id}
+            onPress={() => {
+              setGrupoMuscular(grupo.id);
+              exerciciosPorGrupo(grupo.id);
+            }}
+          >
+            <Text style={styles.textCard}>{grupo.nome}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+    </View>
     };
 
     fetchGruposMusculares();
@@ -44,6 +83,8 @@ export default function Cadastro() {
 
     fetchExercicios();
   }, [grupoMuscular]);
+  consol.log(exercicios)
+  console.log(grupoMuscular)
 
   return (
     <ScrollView>

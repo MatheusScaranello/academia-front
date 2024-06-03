@@ -6,6 +6,10 @@ import Home from "../screens/Home";
 
 
 
+import Login from '../screens/Login'
+import TodosExercicios from "../screens/TodosExercicios"
+import Treino from "../screens/Treino"
+
 
 const Stack = createNativeStackNavigator();
 
