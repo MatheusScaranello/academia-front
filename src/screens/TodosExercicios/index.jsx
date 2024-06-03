@@ -45,6 +45,8 @@ export default function Cadastro() {
 
     fetchExercicios();
   }, [grupoMuscular]);
+  consol.log(exercicios)
+  console.log(grupoMuscular)
 
   return (
     <ScrollView>
