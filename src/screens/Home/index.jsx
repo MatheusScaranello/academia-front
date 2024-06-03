@@ -49,32 +49,49 @@ export default function Home() {
               </Text>
             </View>
           </View>
-          {!flag ? (
             <View>
-              <TouchableOpacity
-                onPress={() => setFlag(true)}
-                style={styles.botaoVerMais}
-              >
-                <Text style={styles.textVerMais}>Ver mais</Text>
-              </TouchableOpacity>
+                <Text style={styles.textVerMais}>Você sabia?</Text>
             </View>
-          ) : (
+     
             <View>
-              <TouchableOpacity
-                onPress={() => navigation.navigate("Categorias")}
-              >
-                <Text>Pesquisa em campo</Text>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate("SobreNos")}>
-                <Text>Equipe especiliazada</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => navigation.navigate("Categorias")}
-              >
-                <Text>Informativo</Text>
-              </TouchableOpacity>
-            </View>
-          )}
+              <View style={styles.botaoCategorias}> 
+              <Image
+          style={styles.img}
+          source={require("")}
+        />
+      <TouchableOpacity
+        style={styles.botaoCategorias}
+        onPress={() => navigation.navigate("Categorias")}
+      >
+       
+        <Text style={styles.textoBnt}>Pesquisa em campo</Text>
+      </TouchableOpacity>
+      </View>
+      <View style={styles.botaoCategorias}> 
+      <Image
+          style={styles.img}
+          source={require("")}
+        />
+      <TouchableOpacity
+        style={styles.botaoCategorias}
+        onPress={() => navigation.navigate("SobreNos")}
+      >
+        <Text style={styles.textoBnt}>Equipe especializada</Text>
+      </TouchableOpacity>
+      </View>
+      <View style={styles.botaoCategorias}> 
+      <Image
+          style={styles.img}
+          source={require("")}
+        />
+      <TouchableOpacity
+        style={styles.botaoCategorias}
+        onPress={() => navigation.navigate("Categorias")}
+      >
+        <Text style={styles.textoBnt}>Informativo</Text>
+      </TouchableOpacity>
+      </View>
+    </View>
         </View>
       </View>
     </ScrollView>

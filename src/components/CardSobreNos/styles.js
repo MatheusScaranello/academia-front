@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#FCD89E",
     textAlign: "center",
+    marginTop: 30,
     marginBottom: 10,
   },
   descriptionMember: {
@@ -28,6 +29,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     paddingLeft: 10,
     paddingRight: 10,
+    marginTop: 10,
   },
   description2: {
     color: "#FCD89E",

@@ -16,5 +16,10 @@ export default StyleSheet.create({
   logo: {
     width: 150,
     height: 150,
+    width: 120,
+    height: 120,
+    top: 10,
+    marginLeft: 20,
+
   },
 });
