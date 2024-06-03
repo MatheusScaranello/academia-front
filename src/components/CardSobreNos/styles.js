@@ -30,6 +30,8 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     marginTop: 10,
+    width: 290,
+    textAlign: "left", 
   },
   description2: {
     color: "#FCD89E",
@@ -39,6 +41,8 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     marginTop: 20,
+    width: 290,
+    textAlign: "left", 
   },
   description3: {
     color: "#FCD89E",
@@ -48,23 +52,26 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     marginTop: 10,
+    width: 290,
+    textAlign: "left", 
   },
   description4: {
-    color: "#FCD89E",
+    color: "black",
     textAlign: "left",
     fontSize: 25,
-    top: -200,
-
+    top: -210,
+    right: 78,
+    fontWeight: "bold",
   },
   description5: {
     color: "black",
     textAlign: "left",
-    fontSize: 15,
+    fontSize: 14,
     position: "absolute",
-    top: 390, // ajuste conforme necessário para a posição vertical
-    left: 20, // ajuste conforme necessário para a posição horizontal
-    zIndex: 1, // para garantir que o texto fique acima da imagem
-    width: 240, // largura do texto
+    top: 422, 
+    left: 20, 
+    zIndex: 1, 
+    width: 240, 
     marginBottom: 10,
     paddingLeft: 10,
     paddingRight: 10,
@@ -73,7 +80,8 @@ const styles = StyleSheet.create({
     color: "#FCD89E",
     textAlign: "left",
     fontSize: 25,
-    top: -50,
+    top: -60,
+    fontWeight: "bold",
   },
   image: {
     borderRadius: 100,
@@ -81,9 +89,9 @@ const styles = StyleSheet.create({
     height: 150,
     marginBottom: 10,
   },
-  imagedois:{
+  imagedois: {
     top: -200,
-    left: 100,
+    left: 120,
   },
   imagebranca: {
     alignSelf: "center",
@@ -93,7 +101,6 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    
   },
   memberName: {
     color: "white",
@@ -108,8 +115,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: 220,
     height: 350,
-    marginHorizontal: 5, // Alterando a margem horizontal dos slides
-    marginVertical: -0, // Alterando a margem vertical dos slides
+    marginHorizontal: 5, 
+    marginVertical: 0, 
     borderColor: "#FCD89E",
     borderWidth: 2,
   },
