@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Home from "../screens/Home";
+import Sobrenos from "../screens/SobreNos";
 
 
 
@@ -13,7 +13,7 @@ const StackRoutes = () => {
   return (
     <Stack.Navigator>
 
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Sobrenos" component={Sobrenos} />
     </Stack.Navigator>
 
   );

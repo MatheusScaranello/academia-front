@@ -50,6 +50,7 @@ export default function CardSobreNos({
   description3,
   description4,
   description5,
+  description6,
 }) {
   return (
     <View style={styles.container}>
@@ -61,6 +62,7 @@ export default function CardSobreNos({
           <Text style={styles.description4}>{description4}</Text>
             <Text style={styles.description5}>{description5}</Text>
       <Image source={imagedois} style={styles.imagedois} />
+      <Text style={styles.description6}>{description6}</Text>
 
       <ScrollView horizontal style={styles.scrollView}>
         {members.map((member) => (
