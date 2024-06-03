@@ -1,21 +1,13 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Sobrenos from "../screens/SobreNos";
-
-
-
-
-
-
+import Cadastro from "../screens/Cadastro";
 
 const Stack = createNativeStackNavigator();
 
 const StackRoutes = () => {
   return (
     <Stack.Navigator>
-
-      <Stack.Screen name="Sobrenos" component={Sobrenos} />
+      <Stack.Screen name="Cadastro" component={Cadastro} />
     </Stack.Navigator>
-
   );
 };
 

@@ -1,18 +1,40 @@
-// Importa a função StyleSheet do React Native
 import { StyleSheet } from "react-native";
 
-// Cria um objeto de estilos usando StyleSheet.create
-const styles = StyleSheet.create({
-  // Define o estilo para o container
+export const styles = StyleSheet.create({
   container: {
-    // Define que o container ocupará todo o espaço disponível
     flex: 1,
-    // Centraliza o conteúdo do container verticalmente
     justifyContent: "center",
-    // Centraliza o conteúdo do container horizontalmente
     alignItems: "center",
+    padding: 20,
+    backgroundColor: "#fff",
+  },
+  title: {
+    fontSize: 24,
+    marginBottom: 20,
+  },
+  form: {
+    width: "100%",
+  },
+  label: {
+    fontSize: 18,
+    marginBottom: 8,
+  },
+  input: {
+    height: 40,
+    borderColor: "#ccc",
+    borderWidth: 1,
+    marginBottom: 20,
+    paddingHorizontal: 10,
+  },
+  button: {
+    backgroundColor: "#007BFF",
+    padding: 10,
+    borderRadius: 5,
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 18,
   },
 });
-
-// Exporta os estilos para serem usados em outros arquivos
-export default styles;
