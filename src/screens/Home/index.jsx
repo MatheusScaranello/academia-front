@@ -70,7 +70,7 @@ export default function Home() {
       <View style={styles.botaoCategorias}> 
       <Image
           style={styles.img}
-          source={require("../../../assets/icon02.png")}
+          source={require("")}
         />
       <TouchableOpacity
         style={styles.botaoCategorias}
@@ -82,7 +82,7 @@ export default function Home() {
       <View style={styles.botaoCategorias}> 
       <Image
           style={styles.img}
-          source={require("../../../assets/icon03.png")}
+          source={require("")}
         />
       <TouchableOpacity
         style={styles.botaoCategorias}
