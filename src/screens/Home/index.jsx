@@ -49,49 +49,48 @@ export default function Home() {
               </Text>
             </View>
           </View>
-            <View>
-                <Text style={styles.textVerMais}>Você sabia?</Text>
-            </View>
-     
-            <View>
-              <View style={styles.botaoCategorias}> 
+          <View>
+            <Text style={styles.textVerMais}>Você sabia?</Text>
+          </View>
+
+          <View>
+            <View style={styles.DivCategorias}>
               <Image
-          style={styles.img}
-          source={require("../../../assets/icon01.png")}
-        />
-      <TouchableOpacity
-        style={styles.botaoCategorias}
-        onPress={() => navigation.navigate("Categorias")}
-      >
-       
-        <Text style={styles.textoBnt}>Pesquisa em campo</Text>
-      </TouchableOpacity>
-      </View>
-      <View style={styles.botaoCategorias}> 
-      <Image
-          style={styles.img}
-          source={require("../../../assets/icon03.png")}
-        />
-      <TouchableOpacity
-        style={styles.botaoCategorias}
-        onPress={() => navigation.navigate("SobreNos")}
-      >
-        <Text style={styles.textoBnt}>Equipe especializada</Text>
-      </TouchableOpacity>
-      </View>
-      <View style={styles.botaoCategorias}> 
-      <Image
-          style={styles.img}
-          source={require("../../../assets/icon02.png")}
-        />
-      <TouchableOpacity
-        style={styles.botaoCategorias}
-        onPress={() => navigation.navigate("Categorias")}
-      >
-        <Text style={styles.textoBnt}>Informativo</Text>
-      </TouchableOpacity>
-      </View>
-    </View>
+                style={styles.img}
+                source={require("../../../assets/icon01.png")}
+              />
+              <TouchableOpacity
+                style={styles.botaoCategorias}
+                onPress={() => navigation.navigate("Categorias")}
+              >
+                <Text style={styles.textoBnt}>Pesquisa em campo</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.DivCategorias}>
+              <Image
+                style={styles.img}
+                source={require("../../../assets/icon03.png")}
+              />
+              <TouchableOpacity
+                style={styles.botaoCategorias}
+                onPress={() => navigation.navigate("SobreNos")}
+              >
+                <Text style={styles.textoBnt}>Equipe especializada</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.DivCategorias}>
+              <Image
+                style={styles.img}
+                source={require("../../../assets/icon02.png")}
+              />
+              <TouchableOpacity
+                style={styles.botaoCategorias}
+                onPress={() => navigation.navigate("Categorias")}
+              >
+                <Text style={styles.textoBnt}>Informativo</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
         </View>
       </View>
     </ScrollView>

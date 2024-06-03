@@ -67,21 +67,25 @@ const styles = StyleSheet.create({
     marginTop: 10, // Adicionei margem superior para separar os botões
   },
   botaoCategorias: {
-    borderColor: "#E8C185",
-    borderWidth: 2,
-    width: 300,
-    alignItems: "center",
-    height: 150,
-    justifyContent: "center",
-    backgroundColor: "gray",
-    padding: 10,
     borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  DivCategorias: {
+    flexDirection: "column",
+    backgroundColor: "gray",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 10,
+    height: 150,
+    width: 300,
+    borderColor: "#E8C185",
+    borderWidth: 1,
     marginBottom: 20, // Adicionei margem inferior para separar os botões
   },
   img: {
-    width: 100,
-    height: 100,
-    marginBottom: 10, // Adicionei margem inferior para separar a imagem do texto
+    width: 50,
+    height: 50,
   },
 });
 
