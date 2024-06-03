@@ -87,6 +87,17 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
   },
+  Conteudo: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  textoConteudo: {
+    color: "#FFFFFF",
+    fontSize: 12,
+    margin: 5,
+    marginTop: -2, // Adicionei margem superior para separar o texto do topo
+    textAlign: "center",
+  },
 });
 
 export default styles;
