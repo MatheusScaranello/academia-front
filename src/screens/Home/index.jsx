@@ -38,9 +38,8 @@ const Conteudo = [
     titulo: "Informativo",
     texto:
       "A ScarFit disponibiliza informações atualizadas sobre diversos temas, para manter você sempre bem informado.",
-},
+  },
 ];
-  
 
 export default function Home() {
   const navigation = useNavigation();
@@ -53,10 +52,10 @@ export default function Home() {
   };
   const handleConteudo2 = () => {
     setConteudo2On(!Conteudo2On);
-  }
+  };
   const handleConteudo3 = () => {
     setConteudo3On(!Conteudo3On);
-  }
+  };
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -98,13 +97,11 @@ export default function Home() {
               >
                 <Text style={styles.textoBnt}>Pesquisa em campo</Text>
               </TouchableOpacity>
-              {
-                Conteudo1On && (
-                  <View style={styles.Conteudo}>
-                    <Text style={styles.textoConteudo}>{Conteudo[0].texto}</Text>
-                  </View>
-                )
-              }
+              {Conteudo1On && (
+                <View style={styles.Conteudo}>
+                  <Text style={styles.textoConteudo}>{Conteudo[0].texto}</Text>
+                </View>
+              )}
             </View>
             <View style={styles.DivCategorias}>
               <Image
@@ -117,16 +114,16 @@ export default function Home() {
               >
                 <Text style={styles.textoBnt}>Equipe especializada</Text>
               </TouchableOpacity>
-              {
-                Conteudo2On && (
-                  <View style={styles.Conteudo}>
-                    <Text style={styles.textoConteudo}>{Conteudo[1].texto}</Text>
-                    <TouchableOpacity onPress={() => navigation.navigate("SobreNos")}>
-                      <Text style={styles.textoConteudo}>Saiba mais</Text>
-                    </TouchableOpacity>
-                  </View>
-                )
-              }
+              {Conteudo2On && (
+                <View style={styles.Conteudo}>
+                  <Text style={styles.textoConteudo}>{Conteudo[1].texto}</Text>
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate("SobreNos")}
+                  >
+                    <Text style={styles.textoConteudo}>Saiba mais</Text>
+                  </TouchableOpacity>
+                </View>
+              )}
             </View>
             <View style={styles.DivCategorias}>
               <Image
@@ -139,13 +136,11 @@ export default function Home() {
               >
                 <Text style={styles.textoBnt}>Informativo</Text>
               </TouchableOpacity>
-              {
-                Conteudo3On && (
-                  <View style={styles.Conteudo}>
-                    <Text style={styles.textoConteudo}>{Conteudo[2].texto}</Text>
-                  </View>
-                )
-              }
+              {Conteudo3On && (
+                <View style={styles.Conteudo}>
+                  <Text style={styles.textoConteudo}>{Conteudo[2].texto}</Text>
+                </View>
+              )}
             </View>
           </View>
         </View>

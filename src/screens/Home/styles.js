@@ -61,10 +61,11 @@ const styles = StyleSheet.create({
     top: 130, // Ajustei o valor para 50 para posicionar o fundo abaixo do carrossel
   },
   textoBnt: {
-    color: "#FFFFFF",
+    color: "#e8c185",
     fontSize: 20,
+    margin: 10, // Adicionei margem superior para separar o texto do topo
     fontWeight: "bold",
-    marginTop: 10, // Adicionei margem superior para separar os botões
+    marginTop: 15, // Adicionei margem superior para separar os botões
   },
   botaoCategorias: {
     borderRadius: 10,
@@ -92,10 +93,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   textoConteudo: {
-    color: "#FFFFFF",
+    color: "#000000",
     fontSize: 12,
-    margin: 5,
-    marginTop: -2, // Adicionei margem superior para separar o texto do topo
+    marginTop: -6, // Adicionei margem superior para separar o texto do topo
+    marginBottom: 15, // Adicionei margem inferior para separar o texto do botão
     textAlign: "center",
   },
 });
