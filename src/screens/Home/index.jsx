@@ -57,7 +57,7 @@ export default function Home() {
               <View style={styles.botaoCategorias}> 
               <Image
           style={styles.img}
-          source={require("")}
+          source={require("../../../assets/icon01.png")}
         />
       <TouchableOpacity
         style={styles.botaoCategorias}
@@ -70,7 +70,7 @@ export default function Home() {
       <View style={styles.botaoCategorias}> 
       <Image
           style={styles.img}
-          source={require("")}
+          source={require("../../../assets/icon03.png")}
         />
       <TouchableOpacity
         style={styles.botaoCategorias}
@@ -82,7 +82,7 @@ export default function Home() {
       <View style={styles.botaoCategorias}> 
       <Image
           style={styles.img}
-          source={require("")}
+          source={require("../../../assets/icon02.png")}
         />
       <TouchableOpacity
         style={styles.botaoCategorias}
