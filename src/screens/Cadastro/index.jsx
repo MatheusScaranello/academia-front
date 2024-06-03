@@ -84,7 +84,6 @@ export default function Cadastro() {
       let remainder = sum % 11;
       return remainder < 2 ? 0 : 11 - remainder;
     };
-<<<<<<< HEAD
 
     // Verifica o primeiro dígito verificador
     let digit1 = validateDigits(cpf, 9);
@@ -146,59 +145,3 @@ export default function Cadastro() {
     </View>
   );
 }
-=======
-    return(
-        <View style={styles.container}>
-            <Text style={styles.title}>Cadastro</Text>
-            <View style={styles.form}>
-                <Text style={styles.label}>Nome</Text>
-                <TextInput
-                    style={styles.input}
-                    value={nome}
-                    onChangeText={setNome}
-                />
-                <Text style={styles.label}>Email</Text>
-                <TextInput
-                    style={styles.input}
-                    value={email}
-                    onChangeText={setEmail}
-                />
-                <Text style={styles.label}>CPF</Text>
-                <TextInput
-                    style={styles.input}
-                    value={cpf}
-                    onChangeText={setCpf}
-                />
-                <Text style={styles.label}>Senha</Text>
-                <TextInput
-                    style={styles.input}
-                    value={senha}
-                    onChangeText={setSenha}
-                    secureTextEntry={true}
-                />
-                <Text style={styles.label}>Confirmar Senha</Text>
-                <TextInput
-                    style={styles.input}
-                    value={confirmarSenha}
-                    onChangeText={setConfirmarSenha}
-                    secureTextEntry={true}
-                />
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={cadastrar}
-                >
-                    <Text style={styles.buttonText}>Cadastrar</Text>
-                </TouchableOpacity>
-                
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => navigation.navigate("Login")}
-                >
-                    <Text style={styles.buttonText}>Se já tem cadastro, faça o login</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
-    )
-    }
-
->>>>>>> a2a6220e67bfb664fd874a92119bb464bda95bc8
