@@ -11,7 +11,6 @@ export default StyleSheet.create({
     opacity: 0.9,
     alignItems: "center",
     width: "100%",
-    // position: "absolute", // Remova esta linha para corrigir o posicionamento da header
   },
   logo: {
     width: 150,
