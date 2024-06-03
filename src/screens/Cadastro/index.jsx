@@ -1,5 +1,11 @@
 // Importa componentes do React Native
-import { View, Text, TouchableOpacity, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  TextInput,
+  ImageBackground,
+} from "react-native";
 // Importa o React
 import React, { useState } from "react";
 // Importa o hook de navegação do React Navigation
@@ -8,6 +14,9 @@ import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
 // Importa o serviço de usuário para realizar ações relacionadas ao usuário
 import apiUsuarios from "../../service/Usuarios";
+// Importa a biblioteca de ícones
+import Icon from "react-native-vector-icons/FontAwesome";
+import { Header } from "../../components/Header";
 
 // Função principal do componente de cadastro de usuário
 export default function Cadastro() {
@@ -42,42 +51,76 @@ export default function Cadastro() {
 
   // Renderiza a interface de cadastro
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Cadastro</Text>
-      <View style={styles.form}>
-        <Text style={styles.label}>Nome</Text>
-        <TextInput style={styles.input} value={nome} onChangeText={setNome} />
-        <Text style={styles.label}>Email</Text>
-        <TextInput style={styles.input} value={email} onChangeText={setEmail} />
-        <Text style={styles.label}>CPF</Text>
-        <TextInput style={styles.input} value={cpf} onChangeText={setCpf} />
-        <Text style={styles.label}>Senha</Text>
-        <TextInput
-          style={styles.input}
-          value={senha}
-          onChangeText={setSenha}
-          secureTextEntry={true}
-        />
-        <Text style={styles.label}>Confirmar Senha</Text>
-        <TextInput
-          style={styles.input}
-          value={confirmarSenha}
-          onChangeText={setConfirmarSenha}
-          secureTextEntry={true}
-        />
-        <TouchableOpacity style={styles.button} onPress={cadastrar}>
-          <Text style={styles.buttonText}>Cadastrar</Text>
-        </TouchableOpacity>
+    // Define a imagem de fundo
+    <ImageBackground
+      source={require("../../../assets/imgfundo.png")} // ajuste o caminho conforme necessário
+      style={styles.background}
+    >
+      <View style={styles.container}>
+        <Header />
+        <Text style={styles.title}>Cadastro</Text>
+        <View style={styles.form}>
+          <View style={styles.inputContainer}>
+            <Icon name="user" size={20} style={styles.icon} />
+            <TextInput
+              style={styles.input}
+              value={nome}
+              onChangeText={setNome}
+              placeholder="Nome"
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <Icon name="envelope" size={20} style={styles.icon} />
+            <TextInput
+              style={styles.input}
+              value={email}
+              onChangeText={setEmail}
+              placeholder="Email"
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <Icon name="id-card" size={20} style={styles.icon} />
+            <TextInput
+              style={styles.input}
+              value={cpf}
+              onChangeText={setCpf}
+              placeholder="CPF"
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <Icon name="lock" size={20} style={styles.icon} />
+            <TextInput
+              style={styles.input}
+              value={senha}
+              onChangeText={setSenha}
+              secureTextEntry={true}
+              placeholder="Senha"
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <Icon name="lock" size={20} style={styles.icon} />
+            <TextInput
+              style={styles.input}
+              value={confirmarSenha}
+              onChangeText={setConfirmarSenha}
+              secureTextEntry={true}
+              placeholder="Confirmar Senha"
+            />
+          </View>
+          <TouchableOpacity style={styles.button} onPress={cadastrar}>
+            <Text style={styles.buttonText}>Cadastrar</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate("Login")}
-        >
-          <Text style={styles.buttonText}>
-            Se já tem cadastro, faça o login
-          </Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate("Login")}
+          >
+            <Text style={styles.buttonText}>
+              Se já tem cadastro, faça o login
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </ImageBackground>
   );
 }
