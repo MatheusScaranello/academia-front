@@ -16,10 +16,6 @@ const Stack = createNativeStackNavigator();
 const StackRoutes = () => {
   return (
 
-    <Stack.Navigator>
-      <Stack.Screen name="SobreNos" component={SobreNos} />
-
-
     <Stack.Navigator> 
        <Stack.Screen name="TodosExercicios" component={TodosExercicios} /> 
       <Stack.Screen name="Exercicio" component={Exercicio} />
