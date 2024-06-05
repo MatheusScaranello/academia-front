@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     color: "#E8C185",
     fontWeight: "bold",
     fontSize: 15,
-    marginBottom: -25000,
+    marginBottom: 2,
   },
   line: {
     width: "60%",
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   contLoge: {
     backgroundColor: "rgba(0, 0, 0, 0.3)",
     width: 350,
-    height: 500,
+    height: 550,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 10,
@@ -80,9 +80,9 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "#E8C185",
-    fontSize: 30,
-    marginBottom: 100,
-    top: 50,
+    fontSize: 25,
+    marginBottom: 55,
+    marginTop: 10,
   },
   icon: {
     position: "absolute",
@@ -98,8 +98,9 @@ const styles = StyleSheet.create({
   textocastro: {
     color: "#E8C185",
     fontSize: 15,
-    marginBottom: -7,
-    marginLeft: 5,
+    marginBottom: 5,
+    marginTop: 5,
+    marginRight: 45,
   },
 });
 

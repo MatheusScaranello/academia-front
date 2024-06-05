@@ -81,11 +81,11 @@ export default function Login() {
             <Text style={styles.bottomText}>
               Se já tem seu Login!
               <TouchableOpacity style={styles.bottom}>
-                <Text style={styles.textocastro}> Faça seu Cadastro.</Text>
+                <Text style={styles.bottomText}> Faça seu Cadastro.</Text>
               </TouchableOpacity>
             </Text>
             <TouchableOpacity onPress={Logen} style={styles.button}>
-              <Text style={styles.textButton}>Entrar</Text>
+              <Text style={styles.textocastro}>Entrar</Text>
             </TouchableOpacity>
             {erro && <Text style={styles.textErro}>{msgErro}</Text>}
           </View>
