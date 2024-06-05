@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Feather } from "@expo/vector-icons";
 
@@ -12,13 +13,44 @@ import SobreNos from "../screens/SobreNos"; // Importe a tela SobreNos
 const Tab = createBottomTabNavigator();
 
 const TabRoutes = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // Aqui você pode verificar se o usuário está logado ou não.
+    // Isso pode ser feito através de uma API, AsyncStorage, Context API, Redux, etc.
+    // Exemplo:
+    // const checkLoginStatus = async () => {
+    //   const loggedIn = await someAsyncCheckLoginFunction();
+    //   setIsLoggedIn(loggedIn);
+    // };
+    // checkLoginStatus();
+
+    // Para este exemplo, vamos apenas simular que o usuário está logado
+    const checkLoginStatus = () => {
+      const loggedIn = true; // Simule o login
+      setIsLoggedIn(loggedIn);
+    };
+    checkLoginStatus();
+  }, []);
+
+  if (isLoggedIn) {
+    return (
+      <Tab.Navigator screenOptions={{ headerShown: false }}>
+        <Tab.Screen
+          name="Cadastro"
+          component={Cadastro}
+        />
+        <Tab.Screen
+          name="Login"
+          component={Login}
+
+        />
+      </Tab.Navigator>
+    );
+  }
+
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }}>
-      <Tab.Screen
-        name="Cadastro"
-        component={Cadastro}
-        options={{ tabBarButton: () => null }}
-      />
       <Tab.Screen
         name="Home"
         component={Home}
@@ -50,12 +82,6 @@ const TabRoutes = () => {
           tabBarActiveTintColor: "#131313",
           tabBarInactiveTintColor: "#D6D6D6",
         }}
-      />
-
-      <Tab.Screen
-        name="Login"
-        component={Login}
-        options={{ tabBarButton: () => null }}
       />
       <Tab.Screen
         name="Exercicio"
