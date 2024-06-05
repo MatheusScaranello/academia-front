@@ -22,7 +22,22 @@ const apiGruposMusculares = {
       console.log(response.data);
       return response.data;
     } catch (error) {
-      throw new Error("Erro ao buscar GruposMusculares pelo id: " + error.message);
+      throw new Error(
+        "Erro ao buscar GruposMusculares pelo id: " + error.message
+      );
+    }
+  },
+  agrupaPorID: async (categoria_id) => {
+    try {
+      const response = await api.get(
+        `/gruposMusculares/categorias/${categoria_id}`
+      );
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      throw new Error(
+        "Erro ao agrupor por categoria GruposMusculares : " + error.message
+      );
     }
   },
   getExerciciosPorGrupoMuscular: async (id) => {
@@ -31,7 +46,9 @@ const apiGruposMusculares = {
       console.log(response.data);
       return response.data;
     } catch (error) {
-      throw new Error("Erro ao buscar exercicios pelo grupo muscular: " + error.message);
+      throw new Error(
+        "Erro ao buscar exercicios pelo grupo muscular: " + error.message
+      );
     }
   },
   postGruposMusculares: async () => {
@@ -49,7 +66,9 @@ const apiGruposMusculares = {
       console.log(response.data);
       return response.data;
     } catch (error) {
-      throw new Error("Erro ao atualizar GruposMusculares pelo id: " + error.message);
+      throw new Error(
+        "Erro ao atualizar GruposMusculares pelo id: " + error.message
+      );
     }
   },
   deleteGruposMusculares: async (id) => {
@@ -58,7 +77,9 @@ const apiGruposMusculares = {
       console.log(response.data);
       return response.data;
     } catch (error) {
-      throw new Error("Erro ao deletar GruposMusculares pelo id: " + error.message);
+      throw new Error(
+        "Erro ao deletar GruposMusculares pelo id: " + error.message
+      );
     }
   },
 };
