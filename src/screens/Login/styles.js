@@ -10,12 +10,13 @@ const styles = StyleSheet.create({
   bottomText: {
     fontSize: 15,
     color: "white",
-    marginBottom: 20,
+    marginTop: 10,
   },
   bottom: {
     color: "#E8C185",
     fontWeight: "bold",
     fontSize: 15,
+    marginBottom: -25000,
   },
   line: {
     width: "60%",
@@ -29,8 +30,11 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   backgroundImage: {
+    flex: 1,
     width: "100%",
     height: "100%",
+    resizeMode: "cover",
+    position: "absolute",
   },
   campInput: {
     width: "60%",
@@ -40,8 +44,8 @@ const styles = StyleSheet.create({
   },
   contLoge: {
     backgroundColor: "rgba(0, 0, 0, 0.3)",
-    width: "90%",
-    height: "100%",
+    width: 350,
+    height: 500,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 10,
@@ -60,7 +64,7 @@ const styles = StyleSheet.create({
     paddingLeft: 40,
   },
   button: {
-    width: 140,
+    width: 130,
     height: 40,
     opacity: 0.9,
     backgroundColor: "#E8C185",
@@ -85,6 +89,17 @@ const styles = StyleSheet.create({
     left: 10,
     top: "50%",
     transform: [{ translateY: -10 }],
+  },
+  textErro: {
+    color: "red",
+    fontSize: 15,
+    marginTop: 10,
+  },
+  textocastro: {
+    color: "#E8C185",
+    fontSize: 15,
+    marginBottom: -7,
+    marginLeft: 5,
   },
 });
 

@@ -81,7 +81,7 @@ export default function Login() {
             <Text style={styles.bottomText}>
               Se já tem seu Login!
               <TouchableOpacity style={styles.bottom}>
-                <Text> Faça seu Cadastro.</Text>
+                <Text style={styles.textocastro}> Faça seu Cadastro.</Text>
               </TouchableOpacity>
             </Text>
             <TouchableOpacity onPress={Logen} style={styles.button}>
