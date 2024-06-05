@@ -3,47 +3,52 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   background: {
     flex: 1,
-    resizeMode: "cover",
     justifyContent: "center",
+    alignItems: "center",
   },
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  card: {
+    backgroundColor: "rgba(255, 255, 255, 0.5)", // Transparent card background color
     padding: 20,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "#E8C185", // Border color
   },
   title: {
     fontSize: 24,
+    fontWeight: "bold",
     marginBottom: 20,
-  },
-  form: {
-    width: "100%",
   },
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 20,
-    borderColor: "#ccc",
-    borderWidth: 1,
-    paddingHorizontal: 10,
-    borderRadius: 5,
-  },
-  icon: {
-    marginRight: 10,
+    marginBottom: 10,
   },
   input: {
     flex: 1,
     height: 40,
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: "#E8C185",
+    paddingLeft: 10,
+  },
+  icon: {
+    color: "#E8C185", // Icon color
+    marginRight: 10,
   },
   button: {
-    backgroundColor: "#007BFF",
-    padding: 10,
+    marginTop: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    backgroundColor: "#E8C185",
     borderRadius: 5,
-    alignItems: "center",
-    marginBottom: 10,
   },
   buttonText: {
-    color: "#fff",
-    fontSize: 18,
+    color: "white",
+    textAlign: "center",
   },
 });
