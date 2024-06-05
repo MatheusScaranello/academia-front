@@ -1,5 +1,5 @@
-
 import React, { useState } from "react";
+import styles from "./styles";
 
 import {
   Text,
@@ -38,7 +38,6 @@ export default function Login() {
   };
 
   return (
-    
     <ImageBackground
       source={require("../../../assets/imageLogin.png")}
       style={styles.backgroundImage}
@@ -87,7 +86,7 @@ export default function Login() {
               </TouchableOpacity>
             </Text>
             <TouchableOpacity onPress={Logen} style={styles.button}>
-              <Text style={styles.textButton}>Entrar</Text>
+              <Text style={styles.textocastro}>Entrar</Text>
             </TouchableOpacity>
             {erro && <Text style={styles.textErro}>{msgErro}</Text>}
           </View>
