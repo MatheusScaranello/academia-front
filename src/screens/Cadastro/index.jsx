@@ -23,6 +23,15 @@ export default function Cadastro() {
     if (senha !== confirmarSenha) {
       alert("As senhas não coincidem.");
       return;
+    } else if (!verificarEmail(email)) {
+      alert("Email inválido.");
+      return;
+    } else if (!verificarCPF(cpf)) {
+      alert("CPF inválido.");
+      return;
+    } else if (nome === "" || email === "" || cpf === "" || senha === "") {
+      alert("Preencha todos os campos.");
+      return;
     }
     try {
       const response = await apiUsuarios.cadastrar({ nome, email, cpf, senha });
@@ -36,6 +45,50 @@ export default function Cadastro() {
       alert("Erro ao cadastrar usuário. Tente novamente.");
     }
   };
+
+  const verificarCPF = (cpf) => {
+    // Remove todos os caracteres que não são dígitos
+    cpf = cpf.replace(/\D/g, '');
+  
+    // Verifica se o CPF tem 11 dígitos
+    if (cpf.length !== 11) {
+      return false;
+    }
+  
+    // Verifica se todos os dígitos são iguais (CPF inválido)
+    if (/^(\d)\1{10}$/.test(cpf)) {
+      return false;
+    }
+  
+    // Calcula o primeiro dígito verificador
+    let soma = 0;
+    for (let i = 0; i < 9; i++) {
+      soma += parseInt(cpf.charAt(i)) * (10 - i);
+    }
+    let resto = soma % 11;
+    let digitoVerificador1 = resto < 2 ? 0 : 11 - resto;
+  
+    // Calcula o segundo dígito verificador
+    soma = 0;
+    for (let i = 0; i < 10; i++) {
+      soma += parseInt(cpf.charAt(i)) * (11 - i);
+    }
+    resto = soma % 11;
+    let digitoVerificador2 = resto < 2 ? 0 : 11 - resto;
+  
+    // Verifica se os dígitos verificadores estão corretos
+    if (parseInt(cpf.charAt(9)) !== digitoVerificador1 || parseInt(cpf.charAt(10)) !== digitoVerificador2) {
+      return false;
+    }
+  
+    return true;
+  }
+  
+  const verificarEmail = (email) => {
+    // Expressão regular para validar o formato do e-mail
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
 
   return (
     <ImageBackground
