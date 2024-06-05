@@ -7,7 +7,7 @@ import { useNavigation } from "@react-navigation/native";
 // Importa os estilos definidos no arquivo styles.js
 import { styles } from "./styles";
 // Importa o serviço de usuário para realizar ações relacionadas ao usuário
-import ServiceUsuario from "../../service/Usuario.js";
+import ServiceUsuario from "../../service/Usuarios.js";
 // Importa o hook useState do React
 import { useState } from "react";
 
