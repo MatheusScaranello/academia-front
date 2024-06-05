@@ -25,25 +25,26 @@ const TabRoutes = () => {
     // };
     // checkLoginStatus();
 
-    // Para este exemplo, vamos apenas simular que o usuário está logado
+    // Para este exemplo, vamos apenas simular que o usuário não está logado
     const checkLoginStatus = () => {
-      const loggedIn = true; // Simule o login
+      const loggedIn = false; // Simule que o usuário não está logado
       setIsLoggedIn(loggedIn);
     };
     checkLoginStatus();
   }, []);
 
-  if (isLoggedIn) {
+  if (!isLoggedIn) {
     return (
       <Tab.Navigator screenOptions={{ headerShown: false }}>
         <Tab.Screen
           name="Cadastro"
           component={Cadastro}
+          options={{ tabBarButton: () => null }}
         />
         <Tab.Screen
           name="Login"
           component={Login}
-
+          options={{ tabBarButton: () => null }}
         />
       </Tab.Navigator>
     );
