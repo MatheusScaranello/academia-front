@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   },
   contLoge: {
     backgroundColor: "rgba(0, 0, 0, 0.3)",
-    width: 350,
+    width: 310,
     height: 550,
     justifyContent: "center",
     alignItems: "center",
@@ -96,11 +96,10 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   textocastro: {
-    color: "#E8C185",
+    color: "#fff",
     fontSize: 15,
     marginBottom: 5,
     marginTop: 5,
-    marginRight: 45,
   },
 });
 
