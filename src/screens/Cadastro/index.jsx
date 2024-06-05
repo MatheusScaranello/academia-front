@@ -23,6 +23,9 @@ export default function Cadastro() {
     if (senha !== confirmarSenha) {
       alert("As senhas não coincidem.");
       return;
+    } else if (senha.length < 6) {
+      alert("A senha deve ter no mínimo 6 caracteres.");
+      return;
     } else if (!verificarEmail(email)) {
       alert("Email inválido.");
       return;
@@ -32,7 +35,7 @@ export default function Cadastro() {
     } else if (nome === "" || email === "" || cpf === "" || senha === "") {
       alert("Preencha todos os campos.");
       return;
-    }
+    } else {
     try {
       const response = await apiUsuarios.cadastrar({ nome, email, cpf, senha });
       if (response.status === 201) {
@@ -43,7 +46,7 @@ export default function Cadastro() {
       }
     } catch (error) {
       alert("Erro ao cadastrar usuário. Tente novamente.");
-    }
+    }}
   };
 
   const verificarCPF = (cpf) => {
