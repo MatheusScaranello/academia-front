@@ -2,7 +2,6 @@ import { Text, View, TouchableOpacity, ScrollView } from "react-native";
 import styles from "./styles";
 import React, { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import apiExercicios from "../../service/Exercicios";
 import apiGruposMusculares from "../../service/GruposMusculares";
 
 export default function Cadastro() {
@@ -27,14 +26,17 @@ export default function Cadastro() {
 
     fetchGruposMusculares();
   }, []);
+  console.log("gruposMusculares:",gruposMusculares)
+  console.log("grupoMuscular1:",grupoMuscular)
 
   useEffect(() => {
     const fetchExercicios = async () => {
       if (grupoMuscular && grupoMuscular.id) {
         try {
           const response = await apiGruposMusculares.getExerciciosPorGrupoMuscular(grupoMuscular.id);
-          setExercicios(Array.isArray(response) ? response : []);
-          console.log(setExercicios)
+          console.log("setExercicios:",setExercicios)
+         return setExercicios(response);
+        
         } catch (error) {
           console.error("Erro ao buscar exercicios por grupo muscular:", error.message);
           setErro(true);
@@ -45,8 +47,8 @@ export default function Cadastro() {
 
     fetchExercicios();
   }, [grupoMuscular]);
-  consol.log(exercicios)
-  console.log(grupoMuscular)
+  console.log("grupoMuscular2:",grupoMuscular)
+  console.log("exercicios:",exercicios)
 
   return (
     <ScrollView>
@@ -68,7 +70,7 @@ export default function Cadastro() {
               <TouchableOpacity
                 style={styles.card}
                 key={exe.id}
-                onPress={() => navigation.navigate("Treino")}
+                onPress={() => navigation.navigate("Treino", id=exe.id)}
               >
                 <Text style={styles.nomeCard}>{exe.nome_exercicio}</Text>
               </TouchableOpacity>
