@@ -12,6 +12,7 @@ import {
 import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import apiUsuarios from "../../service/Usuarios";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -81,7 +82,7 @@ export default function Login() {
             <View style={styles.line} />
             <Text style={styles.bottomText}>
               Se já tem Cadastro!
-              <TouchableOpacity style={styles.bottom}>
+              <TouchableOpacity style={styles.bottom} onPress={() => navigation.navigate("Cadastro")}>
                 <Text> Faça o Login.</Text>
               </TouchableOpacity>
             </Text>
