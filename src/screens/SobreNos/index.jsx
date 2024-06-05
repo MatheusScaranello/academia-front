@@ -20,7 +20,8 @@ export default function SobreNos() {
           description3={["treino personalizado, Aréa explicativa, busca simplificada.",]}
           description4={["Quem Somos"]}
           description5={[ "No Scarfit, acreditamos que o bem-estar físico é a chave para uma vida equilibrada e saudável. Somos um aplicativo de academia inovador, dedicado a transformar sua rotina de exercícios em uma experiência motivadora, eficaz e prazerosa.",]}
-        />
+          description6={["Membros da Equipe"]}
+/>
       </ScrollView>
     </View>
   );

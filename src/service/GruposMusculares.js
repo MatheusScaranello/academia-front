@@ -13,7 +13,7 @@ const apiGruposMusculares = {
       console.log(response.data);
       return response.data;
     } catch (error) {
-      throw new Error("Erro ao buscar grupo muscular: " + error.message);
+      throw new Error("Erro ao buscar grupo muscular: " + error.message);o
     }
   },
   getByIdGruposMusculares: async (id) => {

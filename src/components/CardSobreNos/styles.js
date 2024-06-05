@@ -7,12 +7,12 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
   },
   title: {
-    fontSize: 32,
+    fontSize: 36,
     fontWeight: "bold",
     color: "#FCD89E",
     textAlign: "center",
-    marginTop: 30,
     marginBottom: 10,
+    marginTop: 50,
   },
   descriptionMember: {
     color: "white",
@@ -25,47 +25,63 @@ const styles = StyleSheet.create({
   description: {
     color: "white",
     textAlign: "center",
-    fontSize: 15,
+    fontSize: 18,
     marginBottom: 10,
     paddingLeft: 10,
     paddingRight: 10,
     marginTop: 10,
+    width: 290,
+    textAlign: "left",
   },
   description2: {
     color: "#FCD89E",
     textAlign: "center",
-    fontSize: 15,
+    fontSize: 18,
     marginBottom: 10,
     paddingLeft: 10,
     paddingRight: 10,
+    marginTop: 20,
+    width: 290,
+    textAlign: "left",
   },
   description3: {
     color: "#FCD89E",
     textAlign: "center",
-    fontSize: 15,
+    fontSize: 18,
     marginBottom: 10,
     paddingLeft: 10,
     paddingRight: 10,
+    marginTop: 10,
+    width: 290,
+    textAlign: "left",
   },
   description4: {
-    color: "#FCD89E",
+    color: "black",
     textAlign: "left",
     fontSize: 25,
-    top: -200,
-
+    top: -210,
+    right: 78,
+    fontWeight: "bold",
   },
   description5: {
     color: "black",
     textAlign: "left",
-    fontSize: 15,
+    fontSize: 14,
     position: "absolute",
-    top: 350, // ajuste conforme necessário para a posição vertical
-    left: 20, // ajuste conforme necessário para a posição horizontal
-    zIndex: 1, // para garantir que o texto fique acima da imagem
-    width: 240, // largura do texto
+    top: 422,
+    left: 20,
+    zIndex: 1,
+    width: 240,
     marginBottom: 10,
     paddingLeft: 10,
     paddingRight: 10,
+  },
+  description6: {
+    color: "#FCD89E",
+    textAlign: "left",
+    fontSize: 25,
+    top: -60,
+    fontWeight: "bold",
   },
   image: {
     borderRadius: 100,
@@ -73,19 +89,18 @@ const styles = StyleSheet.create({
     height: 150,
     marginBottom: 10,
   },
-  imagedois:{
+  imagedois: {
     top: -200,
-    left: 100,
+    left: 120,
   },
   imagebranca: {
     alignSelf: "center",
-    width: 880,
+    width: 780,
     height: 300,
-    top: 60,
+    top: 25,
     left: 0,
     right: 0,
     bottom: 0,
-    
   },
   memberName: {
     color: "white",
@@ -100,8 +115,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: 220,
     height: 350,
-    marginHorizontal: 5, // Alterando a margem horizontal dos slides
-    marginVertical: 10, // Alterando a margem vertical dos slides
+    marginHorizontal: 5,
+    marginVertical: 0,
     borderColor: "#FCD89E",
     borderWidth: 2,
   },

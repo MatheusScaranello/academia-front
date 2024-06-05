@@ -1,14 +1,16 @@
 import { Text, View } from "react-native";
 import styles from "./styles";
+import apiExercicios from "../../service/Exercicios";
 
 export default function Treino({ route }) {
   const { id } = route.params;
+  const [exercice, setExercice] = useState(fale);
 
   useEffect(() => {
     const fetchGruposMusculares = async () => {
       try {
-        const response = await apiGruposMusculares.getAllGruposMusculares();
-        setGruposMusculares(response);
+        const response = await apiExercicios.getByIdExercicios(id);
+        setExercice(response);
       } catch (error) {
         console.error("Erro ao buscar grupos musculares:", error.message);
         setErro(true);
@@ -17,23 +19,19 @@ export default function Treino({ route }) {
     };
 
     fetchGruposMusculares();
-  }, []);
+  }, [exercice.id]);
 
-  return <View style={styles.container}>{
-    set.map((item, index) => (
-      <View key={index}>
-        <Text style={styles.title}>Treino</Text>
-        <Text style={styles.text}>{item.exercicio1.nome}</Text>
-        <Text style={styles.text}>{item.exercicio2.nome}</Text>
-        <Text style={styles.text}>{item.exercicio3.nome}</Text>
-        <Text style={styles.text}>{item.exercicio4.nome}</Text>
-        <Text style={styles.text}>{item.exercicio5.nome}</Text>
-        <Text style={styles.text}>{item.exercicio6.nome}</Text>
-        <Text style={styles.text}>{item.exercicio7.nome}</Text>
-        <Text style={styles.text}>{item.exercicio8.nome}</Text>
-        <Text style={styles.text}>{item.exercicio9.nome}</Text>
-        <Text style={styles.text}>{item.exercicio10.nome}</Text>
-      </View>
-    ))
-  }</View>;
+  return (
+    <View style={styles.container}>
+      {exercice.map((exe) => (
+        <View key={exe.id}>
+          <Text style={styles.title}>Treino</Text>
+          <Text style={styles.text}>{exe.nome}</Text>
+          <Text style={styles.text}>{exe.descricao}</Text>
+
+        
+        </View>
+      ))}
+    </View>
+  );
 }
