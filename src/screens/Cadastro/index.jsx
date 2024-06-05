@@ -9,7 +9,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
 import apiUsuarios from "../../service/Usuarios";
-import Icon from "react-native-vector-icons/FontAwesome";
+import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 
 export default function Cadastro() {
   const navigation = useNavigation();
@@ -43,53 +43,57 @@ export default function Cadastro() {
       style={styles.background}
     >
       <View style={styles.container}>
-        <Text style={styles.title}>Faça seu cadastro</Text>
         <View style={styles.card}>
+          <Text style={styles.title}>Faça seu cadastro</Text>
           <View style={styles.inputContainer}>
-            <Icon name="user" size={20} style={styles.icon} />
             <TextInput
               style={styles.input}
               value={nome}
               onChangeText={setNome}
               placeholder="Nome"
+              placeholderTextColor={"white"}
             />
           </View>
           <View style={styles.inputContainer}>
-            <Icon name="envelope" size={20} style={styles.icon} />
+            <FontAwesomeIcon name="envelope" size={20} color="white" />
             <TextInput
               style={styles.input}
               value={email}
               onChangeText={setEmail}
               placeholder="Email"
+              placeholderTextColor={"white"}
             />
           </View>
           <View style={styles.inputContainer}>
-            <Icon name="id-card" size={20} style={styles.icon} />
+            <FontAwesomeIcon name="envelope" size={20} color="white" />
             <TextInput
               style={styles.input}
               value={cpf}
               onChangeText={setCpf}
               placeholder="CPF"
+              placeholderTextColor={"white"}
             />
           </View>
           <View style={styles.inputContainer}>
-            <Icon name="lock" size={20} style={styles.icon} />
+            <FontAwesomeIcon name="envelope" size={20} color="white" />
             <TextInput
               style={styles.input}
               value={senha}
               onChangeText={setSenha}
               secureTextEntry={true}
               placeholder="Senha"
+              placeholderTextColor={"white"}
             />
           </View>
           <View style={styles.inputContainer}>
-            <Icon name="lock" size={20} style={styles.icon} />
+            <FontAwesomeIcon name="envelope" size={20} color="white" />
             <TextInput
               style={styles.input}
               value={confirmarSenha}
               onChangeText={setConfirmarSenha}
               secureTextEntry={true}
               placeholder="Confirmar Senha"
+              placeholderTextColor={"white"}
             />
           </View>
           <TouchableOpacity style={styles.button} onPress={cadastrar}>
