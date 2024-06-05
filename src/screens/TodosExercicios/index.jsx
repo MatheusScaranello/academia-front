@@ -1,19 +1,22 @@
-import { Text, View, TouchableOpacity, ScrollView } from "react-native";
-import styles from "./styles";
 import React, { useState, useEffect } from "react";
+import { Text, View, TouchableOpacity, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import apiExercicios from "../../service/Exercicios";
 import apiGruposMusculares from "../../service/GruposMusculares";
+import styles from "./styles";
 
 export default function Cadastro() {
+  const [erro, setErro] = useState(false);
+  const [msgErro, setMsgErro] = useState("");
+  const [categorias, setCategorias] = useState([]);
   const [grupoMuscular, setGrupoMuscular] = useState(null);
   const [gruposMusculares, setGruposMusculares] = useState([]);
   const [exercicios, setExercicios] = useState([]);
-  const [erro, setErro] = useState(false);
-  const [msgErro, setMsgErro] = useState("");
+  const [selec_cat, setSelec_Cat] = useState(null);
   const navigation = useNavigation();
 
   useEffect(() => {
-    const fetchGruposMusculares = async () => {
+    const fetchCategorias = async () => {
       try {
         const response = await apiGruposMusculares.getAllGruposMusculares();
         setGruposMusculares(response);
@@ -23,32 +26,19 @@ export default function Cadastro() {
         setMsgErro("Erro ao buscar grupos musculares");
       }
     };
-
-    fetchGruposMusculares();
+    fetchCategorias();
   }, []);
-  console.log("gruposMusculares:",gruposMusculares)
-  console.log("grupoMuscular1:",grupoMuscular)
 
-  useEffect(() => {
-    const fetchExercicios = async () => {
-      if (grupoMuscular && grupoMuscular.id) {
-        try {
-          const response = await apiGruposMusculares.getExerciciosPorGrupoMuscular(grupoMuscular.id);
-          console.log("setExercicios:",setExercicios)
-         return setExercicios(response);
-        
-        } catch (error) {
-          console.error("Erro ao buscar exercicios por grupo muscular:", error.message);
-          setErro(true);
-          setMsgErro("Erro ao buscar exercicios por grupo muscular");
-        }
-      }
-    };
-
-    fetchExercicios();
-  }, [grupoMuscular]);
-  console.log("grupoMuscular2:",grupoMuscular)
-  console.log("exercicios:",exercicios)
+  const exerciciosPorGrupo = async (grupoId) => {
+    try {
+      const response = await apiExercicios.getAllExercicios(grupoId);
+      setExercicios(response);
+    } catch (error) {
+      console.error("Erro ao buscar exercicios por grupo muscular:", error.message);
+      setErro(true);
+      setMsgErro("Erro ao buscar exercicios por grupo muscular");
+    }
+  };
 
   return (
     <ScrollView>
@@ -60,7 +50,10 @@ export default function Cadastro() {
               <TouchableOpacity
                 style={styles.card}
                 key={grupo.id}
-                onPress={() => setGrupoMuscular(grupo)}
+                onPress={() => {
+                  setGrupoMuscular(grupo);
+                  exerciciosPorGrupo(grupo.id);
+                }}
               >
                 <Text style={styles.textCard}>{grupo.nome}</Text>
               </TouchableOpacity>
@@ -70,7 +63,7 @@ export default function Cadastro() {
               <TouchableOpacity
                 style={styles.card}
                 key={exe.id}
-                onPress={() => navigation.navigate("Treino", id=exe.id)}
+                onPress={() => navigation.navigate("Treino")}
               >
                 <Text style={styles.nomeCard}>{exe.nome_exercicio}</Text>
               </TouchableOpacity>
