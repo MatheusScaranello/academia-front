@@ -13,7 +13,7 @@ const apiCategorias = {
       console.log(response.data);
       return response.data;
     } catch (error) {
-      throw new Error("Erro ao buscar empresas: " + error.message);
+      throw new Error("Erro ao buscar categorias: " + error.message);
     }
   },
   getByIdCategorias: async (id) => {

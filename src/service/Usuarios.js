@@ -28,7 +28,7 @@ const apiUsuarios = {
   },
   getUsuariosLogin: async (senha,email) => {
     try {
-      const response = await api.get(`/usuarios/${senha}/${email}`);
+      const response = await api.get(`/usuarios/${email}/${senha}`);
       console.log(response.data);
       return response.data;
     } catch (error) {
@@ -60,6 +60,14 @@ const apiUsuarios = {
       return response.data;
     } catch (error) {
       throw new Error("Erro ao deletar Usuarios pelo id: " + error.message);
+    }
+  },
+  cadastrar: async (data) => {
+    try {
+      const response = await api.post("/usuarios", data);
+      return response;
+    } catch (error) {
+      throw new Error("Erro ao cadastrar usuário: " + error.message);
     }
   },
 };

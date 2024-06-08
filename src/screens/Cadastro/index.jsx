@@ -40,7 +40,7 @@ export default function Cadastro() {
       const response = await apiUsuarios.cadastrar({ nome, email, cpf, senha });
       if (response.status === 201) {
         alert("Usuário cadastrado com sucesso!");
-        navigation.navigate("Home");
+        navigation.navigate("Main");
       } else {
         alert("Erro ao cadastrar usuário. Tente novamente.");
       }
@@ -162,9 +162,6 @@ export default function Cadastro() {
             <Text style={styles.buttonText}>
               Se já tem cadastro, faça o login
             </Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Home")}>
-            <Text style={styles.buttonText}>Voltar</Text>
           </TouchableOpacity>
         </View>
       </View>
