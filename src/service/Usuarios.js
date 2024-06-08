@@ -28,11 +28,11 @@ const apiUsuarios = {
   },
   getUsuariosLogin: async (senha,email) => {
     try {
-      const response = await api.get(`/usuarios/login/${senha}/${email}`);
+      const response = await api.get(`/usuarios/${senha}/${email}`);
       console.log(response.data);
       return response.data;
     } catch (error) {
-      throw new Error("Erro ao logar usuario : " + error.message);
+      throw new Error("Erro ao buscar Usuarios pelo email e senha: " + error.message);
     }
   },
   postUsuarios: async () => {

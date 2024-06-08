@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import styles from "./styles";
-
+import React, { useState } from 'react';
 import {
   Text,
   TouchableOpacity,
@@ -8,87 +6,70 @@ import {
   TextInput,
   ScrollView,
   ImageBackground,
-} from "react-native";
-import { Feather } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
-import apiUsuarios from "../../service/Usuarios";
+  Alert,
+} from 'react-native';
+import { Feather } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import apiUsuarios from '../../service/Usuarios';
+import styles from './styles';
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-  const [erro, setErro] = useState(false);
-  const [msgErro, setMsgErro] = useState("");
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [erro, setErro] = useState(true);
+  const [msgErro, setMsgErro] = useState('');
   const navigation = useNavigation();
 
-  const Logen = async () => {
+  const logar = async () => {
     try {
-      if (!email || !senha) {
-        setErro(true);
-        setMsgErro("Preencha todos os campos");
-        return;
-      }
-      await apiUsuarios.getUsuariosLogin(senha, email);
-      console.log("Login realizado com sucesso!");
-      navigation.navigate("Home");
+      const response = await apiUsuarios.getUsuariosLogin(senha, email);
+      console.log(response);
+        navigation.navigate('Main'); // Navigate to the tab navigator
     } catch (error) {
       setErro(true);
-      setMsgErro("Usuário não existe, cadastre-se");
+      setMsgErro(error.message);
     }
   };
 
   return (
     <ImageBackground
-      source={require("../../../assets/imageLogin.png")}
+      source={require('../../../assets/imageLogin.png')}
       style={styles.backgroundImage}
     >
-      <ScrollView style={styles.scroll}>
+      <ScrollView contentContainerStyle={styles.scroll}>
         <View style={styles.container}>
-          <View style={styles.contLoge}>
-            <Text style={styles.text}>Faça seu Login</Text>
-            <View style={styles.campInput}>
-              <Feather
-                name="folder"
-                size={20}
-                color="#E8C185"
-                style={styles.icon}
-              />
-              <TextInput
-                style={styles.input}
-                placeholder="E-mail"
-                placeholderTextColor="#E8C185"
-                value={email}
-                onChangeText={setEmail}
-              />
-            </View>
-            <View style={styles.line} />
-            <View style={styles.campInput}>
-              <Feather
-                name="lock"
-                size={20}
-                color="#E8C185"
-                style={styles.icon}
-              />
-              <TextInput
-                style={styles.input}
-                placeholder="Senha"
-                placeholderTextColor="#E8C185"
-                secureTextEntry={true}
-                value={senha}
-                onChangeText={setSenha}
-              />
-            </View>
-            <View style={styles.line} />
-            <Text style={styles.bottomText}>
-              Se já tem Cadastro!
-              <TouchableOpacity style={styles.bottom} onPress={() => navigation.navigate("Cadastro")}>
-                <Text> Faça o Login.</Text>
-              </TouchableOpacity>
-            </Text>
-            <TouchableOpacity onPress={Logen} style={styles.button}>
-              <Text style={styles.textocastro}>Entrar</Text>
-            </TouchableOpacity>
-            {erro && <Text style={styles.textErro}>{msgErro}</Text>}
-          </View>
+          <Text style={styles.title}>Login</Text>
+
+          {erro && (
+            <Text style={styles.errorText}>{msgErro}</Text>
+          )}
+
+          <TextInput
+            style={styles.input}
+            placeholder="Email"
+            value={email}
+            onChangeText={setEmail}
+            keyboardType="email-address"
+            autoCapitalize="none"
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Senha"
+            value={senha}
+            onChangeText={setSenha}
+            secureTextEntry
+          />
+
+          <TouchableOpacity style={styles.button} onPress={logar}>
+            <Text style={styles.buttonText}>Entrar</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.registerLink}
+            onPress={() => navigation.navigate('Cadastro')}
+          >
+            <Text style={styles.registerText}>Criar uma nova conta</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </ImageBackground>

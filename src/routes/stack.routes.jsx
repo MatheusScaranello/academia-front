@@ -1,22 +1,17 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Cadastro from "../screens/Cadastro";
-import Home from "../screens/Home";
-import Login from "../screens/Login";
-import TodosExercicios from "../screens/TodosExercicios";
-import Treino from "../screens/Treino";
-import Exercicio from "../screens/Exercicio";
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import Login from '../screens/Login';
+import Cadastro from '../screens/Cadastro';
+import TabRoutes from './tab.routes.jsx';
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 const StackRoutes = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="cadastro" component={Cadastro} />
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="TodosExercicios" component={TodosExercicios} />
-      <Stack.Screen name="Exercicio" component={Exercicio} />
-      <Stack.Screen name="Treino" component={Treino} />
+    <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Cadastro" component={Cadastro} />
+      <Stack.Screen name="Main" component={TabRoutes} />
     </Stack.Navigator>
   );
 };

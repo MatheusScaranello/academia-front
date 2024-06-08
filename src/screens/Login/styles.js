@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   textocastro: {
-    color: "#E8C185",
+    color: "#131313",
     fontSize: 15,
     marginBottom: 5,
     marginTop: 5,
