@@ -1,65 +1,208 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, Video } from "react-native";
-import styles from "./styles";
-import apiExercicios from "../../service/Exercicios";
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Animated, TextInput, Button } from "react-native";
+import exercicioService from "../../service/Exercicios";
 
-export default function Exercicio({ route }) {
-  const { id } = route.params;
+const Treino = () => {
   const [exercicios, setExercicios] = useState([]);
-  const [erro, setErro] = useState(false);
-  const [msgErro, setMsgErro] = useState("");
+  const [treino, setTreino] = useState([]);
+  const [fadeAnim] = useState(new Animated.Value(0));
+  const [search, setSearch] = useState("");
+  const [onTreino, setOnTreino] = useState(false);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await apiExercicios.getByIdExercicios(id);
-        console.log("mensagem da api:", response);
-        console.log("dados da api:", response.data);
-        setExercicios(response);
-      } catch (error) {
-        console.error("Erro ao buscar os dados:", error);
-        setErro(true);
-        setMsgErro(
-          "Erro ao buscar os dados. Por favor, tente novamente mais tarde."
-        );
+    loadExercicios();
+    fadeIn();
+  }, []);
+
+  const loadExercicios = async () => {
+    try {
+      const response = await exercicioService.getAllExercicios();
+      setExercicios(response);
+    } catch (error) {
+      console.error("Erro ao carregar exercícios do usuário:", error.message);
+    }
+  };
+
+  const fadeIn = () => {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 1000,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const searchExercicio = () => {
+    const filteredExercicios = exercicios.filter(exercicio => {
+      return exercicio.nome.toLowerCase().includes(search.toLowerCase());
+    });
+    setExercicios(filteredExercicios);
+  };
+
+  const addExercicio = (exercicio) => {
+    const novoExercicio = { ...exercicio, series: 1, repeticoes: 10, carga: 20 }; // Valores padrão para séries, repetições e carga
+    setTreino([...treino, novoExercicio]);
+    // Remover exercício da lista de exercícios disponíveis após ser adicionado ao treino
+    const updatedExercicios = exercicios.filter(item => item.id !== exercicio.id);
+    setExercicios(updatedExercicios);
+  };
+
+  const removeExercicio = (exercicio) => {
+    const newTreino = treino.filter(ex => ex.id !== exercicio.id);
+    setTreino(newTreino);
+    // Adicionar exercício de volta à lista de exercícios disponíveis após ser removido do treino
+    setExercicios([...exercicios, exercicio]);
+  };
+
+  const toggleView = () => {
+    setOnTreino(!onTreino);
+  };
+
+  const incrementSeries = (exercicio) => {
+    const newTreino = treino.map(ex => {
+      if (ex.id === exercicio.id) {
+        return { ...ex, series: ex.series + 1 };
       }
-    };
+      return ex;
+    });
+    setTreino(newTreino);
+  };
 
-    fetchData();
+  const decrementSeries = (exercicio) => {
+    const newTreino = treino.map(ex => {
+      if (ex.id === exercicio.id && ex.series > 1) {
+        return { ...ex, series: ex.series - 1 };
+      }
+      return ex;
+    });
+    setTreino(newTreino);
+  };
 
-    // Cleanup function
-    return () => {
-      // Cleanup code if necessary
-    };
-  }, [id]);
+  const handleChangeRepeticoes = (exercicio, value) => {
+    const newTreino = treino.map(ex => {
+      if (ex.id === exercicio.id) {
+        return { ...ex, repeticoes: value };
+      }
+      return ex;
+    });
+    setTreino(newTreino);
+  };
 
-  console.log(id);
-  console.log(exercicios);
-  console.log(setExercicios);
+  const handleChangeCarga = (exercicio, value) => {
+    const newTreino = treino.map(ex => {
+      if (ex.id === exercicio.id) {
+        return { ...ex, carga: value };
+      }
+      return ex;
+    });
+    setTreino(newTreino);
+  };
 
   return (
-    <View style={styles.container}>
-      {exercicios && exercicios.length > 0 ? (
-        exercicios.map((exercicio) => (
-          <View key={exercicio.id}>
-            <Text style={styles.title}></Text>
-            <Text style={styles.text}>{exercicio.nome}</Text>
-            <Text style={styles.text}>{exercicio.descricao}</Text>
-            {/* Renderização do vídeo */}
-            {exercicio.video && (
-              <Video
-                source={{ uri: exercicio.video }}
-                style={styles.video}
-                controls={true}
-              />
-            )}
-          </View>
-        ))
-      ) : erro ? (
-        <Text style={styles.error}>{msgErro}</Text>
+    <Animated.ScrollView
+      contentContainerStyle={[styles.container, { opacity: fadeAnim }]}
+      showsVerticalScrollIndicator={false}
+    >
+      <TextInput
+        style={styles.searchInput}
+        onChangeText={text => setSearch(text)}
+        value={search}
+        placeholder="Pesquisar exercício"
+        onSubmitEditing={searchExercicio}
+      />
+      <Button title={onTreino ? "Exercícios Disponíveis" : "Meu Treino"} onPress={toggleView} />
+      {onTreino ? (
+        <View>
+          {treino.map(exercicio => (
+            <ExercicioItem key={exercicio.id} exercicio={exercicio} onIncrementSeries={incrementSeries} onDecrementSeries={decrementSeries} onRemoveExercicio={removeExercicio} onChangeRepeticoes={handleChangeRepeticoes} onChangeCarga={handleChangeCarga} />
+          ))}
+        </View>
       ) : (
-        <Text>Nenhum exercício encontrado.</Text>
+        <View>
+          {exercicios.map(exercicio => (
+            <TouchableOpacity
+              key={exercicio.id}
+              style={styles.exercicioItem}
+              onPress={() => addExercicio(exercicio)}
+            >
+              <Text style={styles.exercicioNome}>{exercicio.nome}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
       )}
+    </Animated.ScrollView>
+  );
+};
+
+const ExercicioItem = ({ exercicio, onIncrementSeries, onDecrementSeries, onRemoveExercicio, onChangeRepeticoes, onChangeCarga }) => {
+  return (
+    <View style={styles.exercicioItem}>
+      <Text style={styles.exercicioNome}>{exercicio.nome}</Text>
+      <View style={styles.exercicioInfo}>
+        <Text>Séries: {exercicio.series}</Text>
+        <Button title="+" onPress={() => onIncrementSeries(exercicio)} />
+        <Button title="-" onPress={() => onDecrementSeries(exercicio)} />
+      </View>
+      <View style={styles.exercicioInfo}>
+        <TextInput
+          style={styles.input}
+          value={exercicio.repeticoes.toString()}
+          keyboardType="numeric"
+          onChangeText={(text) => onChangeRepeticoes(exercicio, parseInt(text) || 0)}
+        />
+        <Text>Repetições</Text>
+      </View>
+      <View style={styles.exercicioInfo}>
+        <TextInput
+          style={styles.input}
+          value={exercicio.carga.toString()}
+          keyboardType="numeric"
+          onChangeText={(text) => onChangeCarga(exercicio, parseInt(text) || 0)}
+        />
+        <Text>Carga (kg)</Text>
+      </View>
+      <Button title="Remover" onPress={() => onRemoveExercicio(exercicio)} />
     </View>
   );
-}
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+  },
+  searchInput: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    borderRadius: 5,
+    marginBottom: 20,
+    paddingHorizontal: 10,
+  },
+  exercicioItem: {
+    marginBottom: 10,
+    padding: 10,
+    backgroundColor: '#f0f0f0',
+    borderRadius: 5,
+  },
+  exercicioNome: {
+    fontSize:  18,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  exercicioInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 5,
+  },
+  input: {
+    width: 50,
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    borderRadius: 5,
+    marginRight: 10,
+    paddingHorizontal: 10,
+  },
+});
+
+export default Treino;

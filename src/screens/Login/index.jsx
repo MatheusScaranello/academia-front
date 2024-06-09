@@ -23,13 +23,13 @@ export default function Login() {
   const logar = async () => {
     try {
       const response = await apiUsuarios.getUsuariosLogin(senha, email);
-      console.log(response);
         navigation.navigate('Main'); // Navigate to the tab navigator
     } catch (error) {
       setErro(true);
       setMsgErro(error.message);
     }
   };
+
 
   return (
     <ImageBackground

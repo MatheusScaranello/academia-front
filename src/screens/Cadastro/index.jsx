@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   View,
   Text,
@@ -36,11 +37,12 @@ export default function Cadastro() {
       alert("Preencha todos os campos.");
       return;
     } else {
-    try {
-      const response = await apiUsuarios.cadastrar({ nome, email, cpf, senha });
-      if (response.status === 201) {
-        alert("Usuário cadastrado com sucesso!");
-        navigation.navigate("Main");
+      try {
+        const response = await apiUsuarios.cadastrar({ nome, email, cpf, senha });
+        if (response.status === 201) {
+          await AsyncStorage.setItem('userEmail', email); // Salva o email do usuário
+          alert("Usuário cadastrado com sucesso!");
+          navigation.navigate("Main");
       } else {
         alert("Erro ao cadastrar usuário. Tente novamente.");
       }
