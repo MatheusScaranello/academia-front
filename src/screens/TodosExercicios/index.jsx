@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import ServiceCategorias from "../../service/Categorias";
 import ServiceGrupoMuscular from "../../service/GruposMusculares";
 import ServiceExercicios from "../../service/Exercicios";
+import styles from "./styles";
 
 export default function TodosExercicios() {
   const navigation = useNavigation();
@@ -102,31 +103,3 @@ export default function TodosExercicios() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    backgroundColor: "#fff",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 10,
-  },
-  scrollView: {
-    marginBottom: 20,
-  },
-  button: {
-    padding: 10,
-    backgroundColor: "#f0f0f0",
-    marginBottom: 10,
-  },
-  buttonText: {
-    fontSize: 16,
-  },
-  errorText: {
-    color: "red",
-    marginTop: 10,
-  },
-});

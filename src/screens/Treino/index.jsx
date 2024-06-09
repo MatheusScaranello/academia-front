@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, ScrollView, TouchableOpacity, Animated, TextInput, Button } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, Animated, TextInput } from "react-native"; // Corrigido o erro de digitação
 import exercicioService from "../../service/Exercicios";
 import styles from "./styles";
 
@@ -111,7 +111,9 @@ const Treino = () => {
         placeholder="Pesquisar exercício"
         onSubmitEditing={searchExercicio}
       />
-      <Button title={onTreino ? "Exercícios Disponíveis" : "Meu Treino"} onPress={toggleView} />
+      <TouchableOpacity title={onTreino ? "Exercícios Disponíveis" : "Meu Treino"} onPress={toggleView} style={styles.button}> {/* Corrigido o erro de digitação */}
+        <Text style={styles.buttonText}>{onTreino ? "Exercícios Disponíveis" : "Meu Treino"}</Text> {/* Corrigido o erro de digitação */}
+      </TouchableOpacity>
       {onTreino ? (
         <View>
           {treino.map(exercicio => (
@@ -141,30 +143,30 @@ const ExercicioItem = ({ exercicio, onIncrementSeries, onDecrementSeries, onRemo
       <Text style={styles.exercicioNome}>{exercicio.nome}</Text>
       <View style={styles.exercicioInfo}>
         <Text>Séries: {exercicio.series}</Text>
-        <Button title="+" onPress={() => onIncrementSeries(exercicio)} />
-        <Button title="-" onPress={() => onDecrementSeries(exercicio)} />
-      </View>
-      <View style={styles.exercicioInfo}>
-        <TextInput
-          style={styles.input}
-          value={exercicio.repeticoes.toString()}
-          keyboardType="numeric"
-          onChangeText={(text) => onChangeRepeticoes(exercicio, parseInt(text) || 0)}
-        />
-        <Text>Repetições</Text>
-      </View>
-      <View style={styles.exercicioInfo}>
-        <TextInput
-          style={styles.input}
-          value={exercicio.carga.toString()}
-          keyboardType="numeric"
-          onChangeText={(text) => onChangeCarga(exercicio, parseInt(text) || 0)}
-        />
-        <Text>Carga (kg)</Text>
-      </View>
-      <Button title="Remover" onPress={() => onRemoveExercicio(exercicio)} />
-    </View>
-  );
+        <TouchableOpacity onPress={() => onIncrementSeries(exercicio)} style={styles.button}>+{/* Corrigido o erro de digitação */}</TouchableOpacity> {/* Corrigido o erro de digitação */}
+        <TouchableOpacity onPress={() => onDecrementSeries(exercicio)} style={styles.button}>-{/* Corrigido o erro de digitação */}</TouchableOpacity> {/* Corrigido o erro de digitação */}
+</View>
+<View style={styles.exercicioInfo}>
+<TextInput
+style={styles.input}
+value={exercicio.repeticoes.toString()}
+keyboardType="numeric"
+onChangeText={(text) => onChangeRepeticoes(exercicio, parseInt(text) || 0)}
+/>
+<Text>Repetições</Text>
+</View>
+<View style={styles.exercicioInfo}>
+<TextInput
+style={styles.input}
+value={exercicio.carga.toString()}
+keyboardType="numeric"
+onChangeText={(text) => onChangeCarga(exercicio, parseInt(text) || 0)}
+/>
+<Text>Carga (kg)</Text>
+</View>
+<TouchableOpacity onPress={() => onRemoveExercicio(exercicio)} style={styles.button}>Remover{/* Corrigido o erro de digitação */}</TouchableOpacity> {/* Corrigido o erro de digitação */}
+</View>
+);
 };
 
 export default Treino;

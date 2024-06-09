@@ -41,7 +41,7 @@ export default function Exercicio({ route }) {
   if (!exercicio) {
     return (
       <LinearGradient
-        colors={['#ff6f00', '#ff8f00', '#ffa000']}
+        colors={['#000000', '#D4AF37']}
         style={styles.container}
       >
         <Text style={styles.errorText}>Erro: Nenhum exercício fornecido.</Text>
@@ -54,9 +54,9 @@ export default function Exercicio({ route }) {
 
   return (
     <LinearGradient
-      colors={['#4c669f', '#3b5998', '#192f6a']}
-      style={styles.container}
-    >
+    colors={['#000000']}
+  style={styles.container}
+>
       <Animated.View style={[styles.card, { opacity: fadeAnim }]}>
         <Text style={styles.titulo}>{exercicio.nome}</Text>
         <Text style={styles.descricao}>{exercicio.descricao}</Text>

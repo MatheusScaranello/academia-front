@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   TextInput,
   ImageBackground,
+  ScrollView,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
@@ -95,6 +96,7 @@ export default function Cadastro() {
   }
 
   return (
+    <ScrollView>
     <ImageBackground
       source={require("../../../assets/imgfundo.png")}
       style={styles.background}
@@ -167,5 +169,6 @@ export default function Cadastro() {
         </View>
       </View>
     </ImageBackground>
+    </ScrollView>
   );
 }
