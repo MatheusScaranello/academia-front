@@ -39,13 +39,7 @@ export default function Cadastro() {
     } else {
       try {
         const response = await apiUsuarios.cadastrar({ nome, email, cpf, senha });
-        if (response.status === 201) {
-          await AsyncStorage.setItem('userEmail', email); // Salva o email do usuário
-          alert("Usuário cadastrado com sucesso!");
           navigation.navigate("Main");
-      } else {
-        alert("Erro ao cadastrar usuário. Tente novamente.");
-      }
     } catch (error) {
       alert("Erro ao cadastrar usuário. Tente novamente.");
     }}
