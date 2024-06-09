@@ -25,6 +25,15 @@ const apiExercicios = {
       throw new Error("Erro ao buscar exercicios pelo id: " + error.message);
     }
   },
+  getByIdExerciciosGrupoMuscular: async (id) => {
+    try {
+      const response = await api.get(`/exercicios/grupo-muscular/${id}`);
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      throw new Error("Erro ao buscar exercicios pelo id do grupo muscular: " + error.message);
+    }
+  },
   postExercicios: async () => {
     try {
       const response = await api.post("/exercicios");
