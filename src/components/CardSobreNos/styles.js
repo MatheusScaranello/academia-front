@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
     marginVertical: 0,
     borderColor: "#FCD89E",
     borderWidth: 2,
+    marginBottom: 50,
   },
 });
 
