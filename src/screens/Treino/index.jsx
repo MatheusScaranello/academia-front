@@ -3,6 +3,22 @@ import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Animated, TextInp
 import exercicioService from "../../service/Exercicios";
 import styles from "./styles";
 
+const exerciciosData = [
+  {
+    id: 1,
+    nome: "Supino Reto"
+  },
+  {
+    id: 2,
+    nome: "Rosca Direta"
+  },
+  {
+    id: 3,
+    nome: "Leg Press"
+  },
+];
+
+
 const Treino = () => {
   const [exercicios, setExercicios] = useState([]);
   const [treino, setTreino] = useState([]);
@@ -19,6 +35,9 @@ const Treino = () => {
     try {
       const response = await exercicioService.getAllExercicios();
       setExercicios(response);
+      if (response.length === 0) {
+        setExercicios(exerciciosData);
+      }
     } catch (error) {
       console.error("Erro ao carregar exercícios do usuário:", error.message);
     }
