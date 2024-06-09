@@ -1,65 +1,80 @@
-import React, { useState, useEffect } from "react";
-import { Text, View, Video } from "react-native";
-import styles from "./styles";
-import apiExercicios from "../../service/Exercicios";
+import React from 'react';
+import { Text, View, StyleSheet, TouchableOpacity, Alert, Animated, Share, Clipboard } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { MaterialIcons } from '@expo/vector-icons';
+import styles from './styles';
 
 export default function Exercicio({ route }) {
-  const { id } = route.params;
-  const [exercicios, setExercicios] = useState([]);
-  const [erro, setErro] = useState(false);
-  const [msgErro, setMsgErro] = useState("");
+  const navigation = useNavigation();
+  const { exercicio } = route.params || {};
+  const fadeAnim = React.useRef(new Animated.Value(0)).current;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await apiExercicios.getByIdExercicios(id);
-        console.log("mensagem da api:", response);
-        console.log("dados da api:", response.data);
-        setExercicios(response);
-      } catch (error) {
-        console.error("Erro ao buscar os dados:", error);
-        setErro(true);
-        setMsgErro(
-          "Erro ao buscar os dados. Por favor, tente novamente mais tarde."
-        );
-      }
-    };
+  React.useEffect(() => {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 1000,
+      useNativeDriver: true,
+    }).start();
+  }, [fadeAnim]);
 
-    fetchData();
+  const handleBackPress = () => {
+    Alert.alert('Back', 'Going back to the previous screen.');
+    navigation.goBack();
+  };
 
-    // Cleanup function
-    return () => {
-      // Cleanup code if necessary
-    };
-  }, [id]);
+  const handleSharePress = async () => {
+    try {
+      await Share.share({
+        message: `Check out this exercise: ${exercicio.nome}\nDescription: ${exercicio.descricao}`,
+      });
+    } catch (error) {
+      Alert.alert('Error', 'Failed to share exercise. Please try again later.');
+    }
+  };
 
-  console.log(id);
-  console.log(exercicios);
-  console.log(setExercicios);
+  const handleCopyPress = () => {
+    Clipboard.setString(`Exercise: ${exercicio.nome}\nDescription: ${exercicio.descricao}`);
+    Alert.alert('Copied', 'Exercise details copied to clipboard.');
+  };
+
+  if (!exercicio) {
+    return (
+      <LinearGradient
+        colors={['#ff6f00', '#ff8f00', '#ffa000']}
+        style={styles.container}
+      >
+        <Text style={styles.errorText}>Erro: Nenhum exercício fornecido.</Text>
+        <TouchableOpacity style={styles.button} onPress={handleBackPress}>
+          <Text style={styles.buttonText}>Voltar</Text>
+        </TouchableOpacity>
+      </LinearGradient>
+    );
+  }
 
   return (
-    <View style={styles.container}>
-      {exercicios && exercicios.length > 0 ? (
-        exercicios.map((exercicio) => (
-          <View key={exercicio.id}>
-            <Text style={styles.title}></Text>
-            <Text style={styles.text}>{exercicio.nome}</Text>
-            <Text style={styles.text}>{exercicio.descricao}</Text>
-            {/* Renderização do vídeo */}
-            {exercicio.video && (
-              <Video
-                source={{ uri: exercicio.video }}
-                style={styles.video}
-                controls={true}
-              />
-            )}
-          </View>
-        ))
-      ) : erro ? (
-        <Text style={styles.error}>{msgErro}</Text>
-      ) : (
-        <Text>Nenhum exercício encontrado.</Text>
-      )}
-    </View>
+    <LinearGradient
+      colors={['#4c669f', '#3b5998', '#192f6a']}
+      style={styles.container}
+    >
+      <Animated.View style={[styles.card, { opacity: fadeAnim }]}>
+        <Text style={styles.titulo}>{exercicio.nome}</Text>
+        <Text style={styles.descricao}>{exercicio.descricao}</Text>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.button} onPress={handleBackPress}>
+            <MaterialIcons name="arrow-back" size={24} color="#fff" />
+            <Text style={styles.buttonText}>Voltar</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={handleSharePress}>
+            <MaterialIcons name="share" size={24} color="#fff" />
+            <Text style={styles.buttonText}>Compartilhar</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={handleCopyPress}>
+            <MaterialIcons name="content-copy" size={24} color="#fff" />
+            <Text style={styles.buttonText}>Copiar</Text>
+          </TouchableOpacity>
+        </View>
+      </Animated.View>
+    </LinearGradient>
   );
 }

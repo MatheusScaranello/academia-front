@@ -89,7 +89,7 @@ export default function TodosExercicios() {
           ) : (
             <ScrollView style={styles.scrollView}>
               {exercicios.map((exercicio) => (
-                <TouchableOpacity key={exercicio.id} style={styles.button} onPress={() => navigation.navigate("Exercicio", { exercicio })}>
+                <TouchableOpacity key={exercicio.id} style={styles.button} onPress={() => navigation.navigate("Exercicio", {exercicio})}>
                   <Text style={styles.buttonText}>{exercicio.nome}</Text>
                 </TouchableOpacity>
               ))}
