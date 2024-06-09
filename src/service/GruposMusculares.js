@@ -82,6 +82,17 @@ const apiGruposMusculares = {
       );
     }
   },
+  getGruposMuscularesPorCategoria: async (id) => {
+    try {
+      const response = await api.get(`/gruposMusculares/categoria/${id}`);
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      throw new Error(
+        "Erro ao buscar GruposMusculares por categoria: " + error.message
+      );
+    }
+  },
 };
 export default apiGruposMusculares;
 ;
