@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Animated, TextInput, Button } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, Animated, TextInput, Button } from "react-native";
 import exercicioService from "../../service/Exercicios";
 import styles from "./styles";
 
