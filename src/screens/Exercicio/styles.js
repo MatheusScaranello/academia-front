@@ -9,7 +9,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#000000"
   },
   card: {
-    backgroundColor: '#E8C185',
+    backgroundColor: "rgba(0, 0, 0, 0.3)",
+    borderWidth: 2, // Defina a largura da borda
+    borderColor: "#E8C185", // Defina a cor da borda como dourada
     borderRadius: 10,
     padding: 20,
     width: '90%',
@@ -23,13 +25,13 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: 'bold',
     marginBottom: 10,
-    color: '#000000', // Preto
+    color: '#fff', // Preto
     textAlign: 'center',
   },
   descricao: {
     fontSize: 18,
     textAlign: 'center',
-    color: '#333333', // Cinza escuro
+    color: '#fff', // Cinza escuro
     marginBottom: 20,
   },
   errorText: {
@@ -43,10 +45,12 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   button: {
-    backgroundColor: '#D4AF37', // Ouro
-    paddingVertical: 12,
-    paddingHorizontal: 20,
-    borderRadius: 25,
+
+    backgroundColor: '#E8C185', // Ouro
+    paddingVertical: 5, // Diminuído de 12 para 8
+    paddingHorizontal: 10, // Diminuído de 20 para 16
+    borderRadius: 10,
+    margin: 2,
     alignItems: 'center',
     justifyContent: 'center',
     shadowColor: '#000',
@@ -54,10 +58,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 4,
     elevation: 5,
-  },
+    height: 40, // Altura definida para 40
+    width: "35%", // Largura definida para 80% do contêiner pai
+},
+
   buttonText: {
     color: '#000000', // Preto
-    fontSize: 16,
+    fontSize: 12,
     fontWeight: 'bold',
   },
 });

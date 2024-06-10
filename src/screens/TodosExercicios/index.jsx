@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, TouchableOpacity, ScrollView, StyleSheet, ActivityIndicator } from "react-native";
+import { Text, View, TouchableOpacity, ScrollView, StyleSheet, ActivityIndicator, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import ServiceCategorias from "../../service/Categorias";
 import ServiceGrupoMuscular from "../../service/GruposMusculares";
@@ -58,6 +58,7 @@ export default function TodosExercicios() {
 
   return (
     <View style={styles.container}>
+      <Image source={require("../../../assets/fundoimg.png")} style={styles.imgfundo}/>
       {loading ? (
         <ActivityIndicator size="large" color="#0000ff" />
       ) : (

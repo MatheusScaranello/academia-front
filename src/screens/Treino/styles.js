@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: "#E8C185", // Cor de fundo condizente com os estilos anteriores
+    backgroundColor: "#fff", // Cor de fundo condizente com os estilos anteriores
   },
   searchInput: {
     height: 40,
