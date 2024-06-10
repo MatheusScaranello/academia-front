@@ -164,7 +164,7 @@ onChangeText={(text) => onChangeCarga(exercicio, parseInt(text) || 0)}
 />
 <Text>Carga (kg)</Text>
 </View>
-<TouchableOpacity onPress={() => onRemoveExercicio(exercicio)} style={styles.button}>Remover{/* Corrigido o erro de digitação */}</TouchableOpacity> {/* Corrigido o erro de digitação */}
+<TouchableOpacity onPress={() => onRemoveExercicio(exercicio)} style={styles.button02}>Remover{/* Corrigido o erro de digitação */}</TouchableOpacity> {/* Corrigido o erro de digitação */}
 </View>
 );
 };
